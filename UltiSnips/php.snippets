@@ -1,0 +1,90 @@
+snippet addcolumn "laravel migration for adding a new column"
+		Schema::table('$1', function(Blueprint $table)
+		{
+			$table->$2
+		});
+endsnippet
+
+
+snippet createtable "laravel migration for creating a new table"
+		Schema::create('$1', function(Blueprint $table)
+		{
+			$table->$2
+		});
+endsnippet
+
+
+
+snippet phptest "add a phpunit test method"
+/**
+*
+* @test
+*/
+public function $1(){
+		$2
+}
+endsnippet
+
+
+snippet dusktest "description"
+/**
+*
+* @test
+*/
+public function $1(){
+		$this->browse(function (Browser $browser) {
+			$browser->$2
+		});
+}
+endsnippet
+
+
+	
+snippet pubsimp "a simple public function"
+public function $1(){
+		$2
+}
+endsnippet
+
+snippet privsimp "a simple private function"
+private function $1(){
+		$2
+}
+endsnippet
+
+
+snippet emptytest "Creates an empty phpuinit test" 
+<?php
+
+namespace Tests\\$1;
+
+use Tests\TestCase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+class $2 extends TestCase
+{
+	use RefreshDatabase;
+	use WithFaker;
+
+	protected function setUp()
+	{
+		parent::setUp();
+	}
+
+	$3
+
+
+}
+endsnippet
+
+snippet accessor "Laravel model accessor" 
+/**
+ * Accessor for $2
+ *
+ */
+public function get$1Attribute()
+{
+	$3
+}
+endsnippet

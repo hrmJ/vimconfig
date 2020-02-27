@@ -1,0 +1,10 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "Markdown",
+    "python",
+    "cucumber",
+    "python.django",
+		"vue"
+  ],
+  "eslint.options": { "eslint.autoFixOnSave": false }
+}
