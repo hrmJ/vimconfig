@@ -16,12 +16,15 @@ nmap <silent> t<C-g> :silent! TestVisit<CR>
 
 " fzf
 nnoremap <C-p> :Files<CR>
-nnoremap <leader>f :Files<CR>
+nnoremap <leader>f :GitFiles<CR>
 nnoremap <leader>g :Rg<CR>
-nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>h :History<CR>
-nnoremap <Leader>l :Lines<CR>
+nnoremap <Leader>t :Tags<CR>
+"nnoremap <Leader>b :Buffers<CR>
+"nnoremap <Leader>l :Lines<CR>
 
+nnoremap <silent><leader>b :CtrlSpace<CR>
+nnoremap <silent><leader>b<space> :Buffers<CR>
 
 
 " https://github.com/ctaylo21/jarvis/blob/master/config/nvim/init.vim
@@ -29,18 +32,6 @@ nnoremap <Leader>l :Lines<CR>
 " ===                             KEY MAPPINGS                             === "
 " ============================================================================ "
 
-" === Denite shorcuts === "
-
-" === Nerdtree shorcuts === "
-"  <leader>n - Toggle NERDTree on/off
-"  <leader>f - Opens current file location in NERDTree
-nmap <leader>n :NERDTreeToggle<CR>
-" nmap <leader>f :NERDTreeFind<CR>
-
-"   <Space> - PageDown
-"   -       - PageUp
-" noremap <Space> <PageDown>
-" noremap - <PageUp>
 
 " === coc.nvim === "
 nmap <silent> <leader>dd <Plug>(coc-definition)
@@ -49,6 +40,10 @@ nmap <silent> <leader>dj <Plug>(coc-implementation)
 vmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>t  <Plug>(coc-format-selected)
 nmap <leader><space> <Plug>(coc-format)
+nnoremap <Leader>l :CocList<CR>
+nnoremap <Leader>co :CocCommand <CR>
+nnoremap <Leader>o :CocList outline <CR>
+
 " coc.git
 " navigate chunks of current buffer
 nmap [g <Plug>(coc-git-prevchunk)
@@ -83,3 +78,9 @@ nmap <leader>z :JsDoc<CR>
 " Used when you want to paste over something without it getting copied to
 " Vim's default buffer
 vnoremap <leader>p "_dP
+
+
+" Tslime
+"
+"
+"vmap  <leader>m SendSelectionToTmux

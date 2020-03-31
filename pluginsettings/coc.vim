@@ -54,3 +54,10 @@ nnoremap <leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
 
 " Init jest in current cwd, require global jest command exists
 command! JestInit :call CocAction('runCommand', 'jest.init')
+
+
+"Yanklist
+"
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+
+

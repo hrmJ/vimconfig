@@ -4,6 +4,7 @@ filetype off                  " required
 tnoremap <Esc> <C-\><C-n>
 set wildignore+=*/node_modules/**,*.swp,*.zip,*/__pycache__/**,*/dist/**
 
+
 source $HOME/.config/nvim/plugins.vim
 source $HOME/.config/nvim/keys.vim
 source $HOME/.config/nvim/filetypes.vim
@@ -19,4 +20,6 @@ source $HOME/.config/nvim/pluginsettings/airline.vim
 source $HOME/.config/nvim/pluginsettings/vim-javascript.vim
 source $HOME/.config/nvim/pluginsettings/prettier.vim
 source $HOME/.config/nvim/pluginsettings/phpdoc.vim
+source $HOME/.config/nvim/pluginsettings/taglist.vim
+source $HOME/.config/nvim/pluginsettings/ctrlspace.vim
 source $HOME/.config/nvim/themes/codedark.vim
