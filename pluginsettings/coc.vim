@@ -1,3 +1,25 @@
+let g:coc_global_extensions = [
+			\'ReactSnippets',
+    	\'coc-emmet',
+    	\'coc-eslint',
+    	\'coc-git',
+    	\'coc-json',
+    	\'coc-lists',
+    	\'coc-marketplace',
+    	\'coc-phpls',
+    	\'coc-post',
+    	\'coc-prettier',
+    	\'coc-snippets',
+    	\'coc-todolist',
+    	\'coc-tsserver',
+    	\'coc-vetur',
+    	\'coc-webpack',
+    	\'coc-yank',
+    	\'jest-snippets',
+    	\'laravel5-snippets',
+			\]
+
+
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
