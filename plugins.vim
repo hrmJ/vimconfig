@@ -49,6 +49,8 @@ Plug 'jwalton512/vim-blade'
 Plug 'tpope/vim-eunuch'
 Plug 'joereynolds/SQHell.vim'
 
+Plug 'chr4/nginx.vim'
+
 "Plug 'MrAlejandro/vim-phpdoc'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
