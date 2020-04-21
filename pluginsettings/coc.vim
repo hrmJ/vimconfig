@@ -1,5 +1,4 @@
 let g:coc_global_extensions = [
-			\'ReactSnippets',
     	\'coc-emmet',
     	\'coc-eslint',
     	\'coc-git',
@@ -15,8 +14,9 @@ let g:coc_global_extensions = [
     	\'coc-vetur',
     	\'coc-webpack',
     	\'coc-yank',
-    	\'jest-snippets',
-    	\'laravel5-snippets',
+    	\'https://github.com/onecentlin/laravel5-snippets-vscode',
+    	\'https://github.com/xabikos/vscode-react',
+    	\'https://github.com/andys8/vscode-jest-snippets',
 			\]
 
 

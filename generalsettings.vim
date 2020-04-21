@@ -40,8 +40,9 @@ set cmdheight=1
 " Don't give completion messages like 'match 1 of 2'
 " or 'The only match'
 set shortmess+=c
+"split to right by default
 
-
+set splitright
 
 " Search for selected text, forwards or backwards.
 vnoremap <silent> * :<C-U>

@@ -28,6 +28,15 @@ Plug 'janko/vim-test'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'heavenshell/vim-jsdoc'
+Plug 'eliba2/vim-node-inspect'
+"typescript + react
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'tpope/vim-cucumber'
+
+
+
+
 " vim's look  and interface
 Plug 'vim-airline/vim-airline'
 Plug 'tomasiser/vim-code-dark'
@@ -37,6 +46,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'dense-analysis/ale'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'preservim/nerdcommenter'
+Plug 'tpope/vim-unimpaired'
 
 " php  / laravel
 Plug 'Rican7/php-doc-modded'
@@ -56,6 +66,7 @@ Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'branch': 'release/1.x',
   \ 'for': [  'php' ] }
+
 
 "tmux: for testing
 

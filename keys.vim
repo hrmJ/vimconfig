@@ -17,7 +17,7 @@ nmap <silent> t<C-g> :silent! TestVisit<CR>
 " fzf
 nnoremap <C-p> :Files<CR>
 nnoremap <leader>f :GitFiles<CR>
-nnoremap <leader>g :Rg<CR>
+nnoremap <leader>g :Rg 
 nnoremap <Leader>h :History<CR>
 nnoremap <Leader>t :Tags<CR>
 "nnoremap <Leader>b :Buffers<CR>
@@ -25,6 +25,14 @@ nnoremap <Leader>t :Tags<CR>
 
 nnoremap <silent><leader>b :CtrlSpace<CR>
 nnoremap <silent><leader>b<space> :Buffers<CR>
+
+"Useful for php obj props
+imap >> <Esc>a->
+map ;; A;<Esc>
+
+"general
+inoremap <Leader>fn <C-R>=expand("%:t:r")<CR>
+nnoremap <Leader>t :Tags<CR>
 
 
 " https://github.com/ctaylo21/jarvis/blob/master/config/nvim/init.vim

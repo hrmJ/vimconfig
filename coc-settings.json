@@ -4,7 +4,13 @@
     "python",
     "cucumber",
     "python.django",
-		"vue"
+    "vue",
+    "javascript.jsx",
+    "javascript",
+    "javascript.tsx",
+    "typescript.tsx",
+    "typescript"
   ],
-  "eslint.options": { "eslint.autoFixOnSave": false }
+  "eslint.options": { "eslint.autoFixOnSave": false },
+	"todolist.notify": "echo"
 }
