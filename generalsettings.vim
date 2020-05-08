@@ -56,6 +56,12 @@ vnoremap <silent> # :<C-U>
   \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gVzv:call setreg('"', old_reg, old_regtype)<CR>
 
+" RG search for selected text
+vmap <leader>s :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy:<C-R>=&ic?'Rg ':'Rg '<CR><C-R><C-R>=substitute(
+  \escape(@", '/\.*$^~['), '', '', 'g')<CR><CR>
+
 
 " Set backups
 "if has('persistent_undo')
