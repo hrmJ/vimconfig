@@ -30,9 +30,11 @@ Plug 'honza/vim-snippets'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'eliba2/vim-node-inspect'
 "typescript + react
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
+"Plug 'leafgarland/typescript-vim'
+"Plug 'peitalin/vim-jsx-typescript'
+Plug 'herringtondarkholme/yats.vim'
 Plug 'tpope/vim-cucumber'
+Plug 'SidOfc/mkdx'
 
 
 

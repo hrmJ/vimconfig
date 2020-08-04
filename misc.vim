@@ -1,5 +1,5 @@
 " save when leaving insert mode
-autocmd InsertLeave * write
+"autocmd InsertLeave * write
 
 
 " Prettier for PHP

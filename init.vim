@@ -24,4 +24,5 @@ source $HOME/.config/nvim/pluginsettings/prettier.vim
 source $HOME/.config/nvim/pluginsettings/phpdoc.vim
 source $HOME/.config/nvim/pluginsettings/taglist.vim
 source $HOME/.config/nvim/pluginsettings/ctrlspace.vim
+source $HOME/.config/nvim/pluginsettings/mkdx.vim
 source $HOME/.config/nvim/themes/codedark.vim

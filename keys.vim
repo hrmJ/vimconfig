@@ -34,6 +34,8 @@ map ;; A;<Esc>
 inoremap <Leader>fn <C-R>=expand("%:t:r")<CR>
 nnoremap <Leader>t :Tags<CR>
 
+"mindmaps
+vmap <Leader>m <Plug>(coc-markmap-create-v)
 
 " https://github.com/ctaylo21/jarvis/blob/master/config/nvim/init.vim
 " ============================================================================ "

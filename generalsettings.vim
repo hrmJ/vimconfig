@@ -44,6 +44,10 @@ set shortmess+=c
 
 set splitright
 
+" Syntax highlighting: slow, but correct:
+
+autocmd BufEnter * :syntax sync fromstart
+
 " Search for selected text, forwards or backwards.
 vnoremap <silent> * :<C-U>
   \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
