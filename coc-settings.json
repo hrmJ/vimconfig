@@ -1,6 +1,7 @@
 {
   "coc.preferences.formatOnSaveFiletypes": [
     "Markdown",
+    "rmd",
     "python",
     "cucumber",
     "python.django",
@@ -11,6 +12,8 @@
     "typescript.tsx",
     "typescript"
   ],
-  "eslint.options": { "eslint.autoFixOnSave": false },
-	"todolist.notify": "echo"
+  "eslint.options": { "eslint.autoFixOnSave": true },
+  "todolist.notify": "echo",
+  "vetur.completion.useScaffoldSnippets": true,
+  "emmet.includeLanguages": { "vue": "html" }
 }

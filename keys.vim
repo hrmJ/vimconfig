@@ -27,8 +27,9 @@ nnoremap <silent><leader>b :CtrlSpace<CR>
 nnoremap <silent><leader>b<space> :Buffers<CR>
 
 "Useful for php obj props
-imap >> <Esc>a->
-map ;; A;<Esc>
+imap -- <Esc>a-><c-x><c-o>
+imap ;; <Esc>A;<Esc>
+imap ,, <c-o>a
 
 "general
 inoremap <Leader>fn <C-R>=expand("%:t:r")<CR>

@@ -35,7 +35,10 @@ Plug 'eliba2/vim-node-inspect'
 Plug 'herringtondarkholme/yats.vim'
 Plug 'tpope/vim-cucumber'
 Plug 'SidOfc/mkdx'
+Plug 'majutsushi/tagbar'
+Plug 'kkoomen/vim-doge'
 
+Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 
 
 
