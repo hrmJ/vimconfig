@@ -20,6 +20,7 @@ nnoremap <leader>f :GitFiles<CR>
 nnoremap <leader>g :Rg 
 nnoremap <Leader>h :History<CR>
 nnoremap <Leader>t :Tags<CR>
+nnoremap <C-l> :Lines<CR>
 "nnoremap <Leader>b :Buffers<CR>
 "nnoremap <Leader>l :Lines<CR>
 

@@ -19,7 +19,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'tpope/vim-abolish'
 Plug 'Olical/vim-enmasse'
 " javascript / webdev
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'tag': 'v0.0.78'}
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'Galooshi/vim-import-js'
@@ -34,8 +34,12 @@ Plug 'eliba2/vim-node-inspect'
 "Plug 'peitalin/vim-jsx-typescript'
 Plug 'herringtondarkholme/yats.vim'
 Plug 'tpope/vim-cucumber'
+"markdown
+Plug 'dhruvasagar/vim-table-mode'
 Plug 'SidOfc/mkdx'
 Plug 'majutsushi/tagbar'
+
+
 Plug 'kkoomen/vim-doge'
 
 Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
@@ -65,6 +69,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'joereynolds/SQHell.vim'
 
 Plug 'chr4/nginx.vim'
+Plug 'adelarsq/vim-matchit'
 
 "Plug 'MrAlejandro/vim-phpdoc'
 Plug 'prettier/vim-prettier', {
