@@ -15,5 +15,6 @@
   "eslint.options": { "eslint.autoFixOnSave": true },
   "todolist.notify": "echo",
   "vetur.completion.useScaffoldSnippets": true,
+	"vetur.format.enable": true,
   "emmet.includeLanguages": { "vue": "html" }
 }

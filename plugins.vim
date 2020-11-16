@@ -81,6 +81,12 @@ Plug 'prettier/vim-prettier', {
 "tmux: for testing
 
 Plug 'jgdavey/tslime.vim'
+Plug 'vim-voom/VOoM'
+Plug 'Shougo/unite-outline'
+Plug 'chmp/mdnav'
+Plug 'AndrewRadev/dsf.vim'
+
+
 
 
 call plug#end()

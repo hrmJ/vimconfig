@@ -22,7 +22,7 @@ set hidden
 " Insert spaces when TAB is pressed.
 "set expandtab
 " Insert TABS when TAB is pressed.
-set noexpandtab
+set expandtab
 set tabstop=2
 " Change number of spaces that a <Tab> counts for during editing ops
 set softtabstop=2
