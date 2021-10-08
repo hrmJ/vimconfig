@@ -2,6 +2,8 @@
 "  Markdown
 let g:markdown_folding=1
 
+au! BufNewFile,BufRead *.svelte set ft=svelte
+
 " js + jsx
 
 "autocmd FileType javascript.jsx setlocal shiftwidth=2 tabstop=2

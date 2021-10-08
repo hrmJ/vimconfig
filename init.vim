@@ -13,7 +13,9 @@ source $HOME/.config/nvim/filetypes.vim
 source $HOME/.config/nvim/generalsettings.vim
 source $HOME/.config/nvim/misc.vim
 source $HOME/.config/nvim/pluginsettings/ultisnips.vim
+source $HOME/.config/nvim/pluginsettings/mkpreview.vim
 source $HOME/.config/nvim/pluginsettings/jsdoc.vim
+source $HOME/.config/nvim/pluginsettings/fzf.vim
 source $HOME/.config/nvim/pluginsettings/ale.vim
 source $HOME/.config/nvim/pluginsettings/vim-test.vim
 source $HOME/.config/nvim/pluginsettings/coc.vim
@@ -25,4 +27,5 @@ source $HOME/.config/nvim/pluginsettings/phpdoc.vim
 source $HOME/.config/nvim/pluginsettings/taglist.vim
 source $HOME/.config/nvim/pluginsettings/ctrlspace.vim
 source $HOME/.config/nvim/pluginsettings/mkdx.vim
+source $HOME/.config/nvim/pluginsettings/general.vim
 source $HOME/.config/nvim/themes/codedark.vim

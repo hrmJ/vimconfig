@@ -96,3 +96,7 @@ vnoremap <leader>p "_dP
 "
 "
 "vmap  <leader>m SendSelectionToTmux
+"
+"
+
+map <C-c> :BD<cr>

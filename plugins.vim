@@ -19,7 +19,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'tpope/vim-abolish'
 Plug 'Olical/vim-enmasse'
 " javascript / webdev
-Plug 'neoclide/coc.nvim', {'tag': 'v0.0.78'}
+Plug 'neoclide/coc.nvim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'Galooshi/vim-import-js'
@@ -38,6 +38,8 @@ Plug 'tpope/vim-cucumber'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'SidOfc/mkdx'
 Plug 'majutsushi/tagbar'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
 
 Plug 'kkoomen/vim-doge'
@@ -51,6 +53,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'tomasiser/vim-code-dark'
 " git:
 Plug 'tpope/vim-fugitive'
+Plug 'idanarye/vim-merginal'
 " Other / system
 Plug 'dense-analysis/ale'
 Plug 'terryma/vim-multiple-cursors'
@@ -68,6 +71,7 @@ Plug 'jwalton512/vim-blade'
 Plug 'tpope/vim-eunuch'
 Plug 'joereynolds/SQHell.vim'
 
+
 Plug 'chr4/nginx.vim'
 Plug 'adelarsq/vim-matchit'
 
@@ -81,10 +85,16 @@ Plug 'prettier/vim-prettier', {
 "tmux: for testing
 
 Plug 'jgdavey/tslime.vim'
+
+" other
+"
 Plug 'vim-voom/VOoM'
 Plug 'Shougo/unite-outline'
 Plug 'chmp/mdnav'
 Plug 'AndrewRadev/dsf.vim'
+Plug 'qpkorr/vim-bufkill'
+Plug 'junegunn/vim-easy-align'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 
 

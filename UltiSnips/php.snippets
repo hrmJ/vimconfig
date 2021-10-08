@@ -63,13 +63,13 @@ endsnippet
 snippet emptytest "Creates an empty phpuinit test" 
 <?php
 
-namespace Tests\\$1;
+namespace $2;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class $2 extends TestCase
+class $3 extends $4
 {
 	use RefreshDatabase;
 	use WithFaker;
@@ -79,7 +79,7 @@ class $2 extends TestCase
 		parent::setUp();
 	}
 
-	$3
+	$5
 
 
 }
@@ -125,3 +125,9 @@ public function __construct($1)
 }
 
 endsnippet
+
+
+snippet orderbyidlast "get the latest instance of a model" i
+orderBy('id', 'desc')->first()
+endsnippet
+

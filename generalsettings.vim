@@ -44,6 +44,8 @@ set shortmess+=c
 
 set splitright
 
+set nohlsearch
+
 " Syntax highlighting: slow, but correct:
 
 autocmd BufEnter * :syntax sync fromstart
