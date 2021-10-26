@@ -19,7 +19,8 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'tpope/vim-abolish'
 Plug 'Olical/vim-enmasse'
 " javascript / webdev
-Plug 'neoclide/coc.nvim'
+" Plug 'neoclide/coc.nvim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'Galooshi/vim-import-js'
@@ -38,7 +39,7 @@ Plug 'tpope/vim-cucumber'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'SidOfc/mkdx'
 Plug 'majutsushi/tagbar'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
 
@@ -95,6 +96,8 @@ Plug 'AndrewRadev/dsf.vim'
 Plug 'qpkorr/vim-bufkill'
 Plug 'junegunn/vim-easy-align'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+
+Plug 'tpope/vim-commentary'
 
 
 

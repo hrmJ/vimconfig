@@ -12,7 +12,8 @@
     "typescript.tsx",
     "typescript"
   ],
-  "eslint.options": { "eslint.autoFixOnSave": true },
-	"vetur.format.enable": true,
-  "emmet.includeLanguages": { "vue": "html" }
+  "eslint.autoFixOnSave": true,
+  "vetur.format.enable": true,
+  "emmet.includeLanguages": { "vue": "html" },
+  "git.enableGlobalStatus": false
 }

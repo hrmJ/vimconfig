@@ -6,6 +6,7 @@ set wildignore+=*/node_modules/**,*.swp,*.zip,*/__pycache__/**,*/dist/**
 
 " Add a custom command for quickly opening config
 command Config tabnew ~/.config/nvim/init.vim
+command Plugins tabnew ~/.config/nvim/plugins.vim
 
 source $HOME/.config/nvim/plugins.vim
 source $HOME/.config/nvim/keys.vim
