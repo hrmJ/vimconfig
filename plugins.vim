@@ -19,7 +19,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'tpope/vim-abolish'
 Plug 'Olical/vim-enmasse'
 " javascript / webdev
-Plug 'neoclide/coc.nvim', {'tag': 'v0.0.78'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'Galooshi/vim-import-js'
@@ -39,11 +39,11 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'SidOfc/mkdx'
 Plug 'majutsushi/tagbar'
 
-
-Plug 'kkoomen/vim-doge'
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 
 Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 
+Plug 'leafOfTree/vim-svelte-plugin'
 
 
 " vim's look  and interface

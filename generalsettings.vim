@@ -20,9 +20,9 @@ set hidden
 
 " === TAB/Space settings === "
 " Insert spaces when TAB is pressed.
-"set expandtab
+set expandtab
 " Insert TABS when TAB is pressed.
-set noexpandtab
+"set noexpandtab
 set tabstop=2
 " Change number of spaces that a <Tab> counts for during editing ops
 set softtabstop=2
