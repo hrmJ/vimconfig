@@ -72,6 +72,10 @@ _G.packer_plugins = {
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/juho/.local/share/nvim/site/pack/packer/start/packer.nvim"
+  },
+  ["vim-surround"] = {
+    loaded = true,
+    path = "/home/juho/.local/share/nvim/site/pack/packer/start/vim-surround"
   }
 }
 
