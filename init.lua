@@ -12,5 +12,7 @@ My nvim conf in lua.
 --]]
 
 require('keys')
+require('search-options')
+require('generic-options')
 require('bootstrap-packer')
 require('plugins')

@@ -73,6 +73,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/juho/.local/share/nvim/site/pack/packer/start/packer.nvim"
   },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/home/juho/.local/share/nvim/site/pack/packer/start/vim-fugitive"
+  },
   ["vim-surround"] = {
     loaded = true,
     path = "/home/juho/.local/share/nvim/site/pack/packer/start/vim-surround"
