@@ -1,4 +1,3 @@
-
 require('plugins')
 require('_lsp-config')
 require('cmp-config')
