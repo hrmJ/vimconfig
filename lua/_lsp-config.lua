@@ -38,8 +38,8 @@ nvim_lsp.tsserver.setup {
             -- eslint
             eslint_enable_code_actions = true,
             eslint_enable_disable_comments = true,
-            eslint_bin = "eslint",
-            eslint_enable_diagnostics = true,
+            eslint_bin = "eslint_d",
+            eslint_enable_diagnostics = false,
             eslint_opts = {},
 
             -- formatting
