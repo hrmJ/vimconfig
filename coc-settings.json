@@ -12,8 +12,10 @@
     "typescript.tsx",
     "typescript"
   ],
+  "suggest.timeout": 500,
   "eslint.autoFixOnSave": true,
-  "vetur.format.enable": true,
   "emmet.includeLanguages": { "vue": "html" },
-  "git.enableGlobalStatus": false
+  "git.enableGlobalStatus": false,
+  "diagnostic.checkCurrentLine": true,
+  "coc.source.around.priority": 3
 }

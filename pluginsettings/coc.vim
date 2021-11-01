@@ -64,7 +64,6 @@ endfunction
 
 "JEST
 
-
 " Run jest for current project
 command! -nargs=0 Jest :call  CocAction('runCommand', 'jest.projectTest')
 

@@ -19,8 +19,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'tpope/vim-abolish'
 Plug 'Olical/vim-enmasse'
 " javascript / webdev
-" Plug 'neoclide/coc.nvim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'Galooshi/vim-import-js'
@@ -100,6 +99,30 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'tpope/vim-commentary'
 
 
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"source $HOME/.config/nvim/nvim-cmp.vim
+
+Plug 'neovim/nvim-lspconfig'
+
+" COQ.nvim
+Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+" 9000+ Snippets
+Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+
+" lua & third party sources -- See https://github.com/ms-jpq/coq.thirdparty
+" Need to **configure separately**
+Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}
+
 
 
 call plug#end()
+
+
+" lua << EOF
+" local lsp = require "lspconfig"
+" local coq = require "coq"
+" 
+" lsp.tsserver.setup{}
+" lsp.tsserver.setup(coq.lsp_ensure_capabilities{})
+" vim.cmd('COQnow -s')
+" EOF
