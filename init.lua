@@ -17,10 +17,11 @@ treesitter: gcc-c++
 --]]
 
 require('keys')
-require('search-options')
-require('generic-options')
 require('bootstrap-packer')
 require('plugins')
+require('search-options')
+require('generic-options')
 require('telescope-config')
 require('treesitter-config')
 require('cmp-config')
+require('colors')

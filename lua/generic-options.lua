@@ -5,12 +5,6 @@ vim.opt.expandtab = true
 vim.opt.hidden = true
 
 vim.cmd [[
-  syntax enable
-  colorscheme nvcode
-  let g:nvcode_termcolors=256
-]]
-
-vim.cmd [[
 set autoindent
 set expandtab
 set shiftwidth=2
