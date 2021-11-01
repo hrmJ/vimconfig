@@ -24,6 +24,12 @@ require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'tomasiser/vim-code-dark'
 
+  use 'mattn/efm-langserver'
+  use 'jose-elias-alvarez/null-ls.nvim'
+  use 'jose-elias-alvarez/nvim-lsp-ts-utils'
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
+  use 'windwp/nvim-ts-autotag'
+
 
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use 'onsails/lspkind-nvim'
