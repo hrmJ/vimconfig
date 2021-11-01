@@ -10,7 +10,11 @@ vim.api.nvim_set_keymap(
 )
 
 local luasnip = require 'luasnip'
--- nvim-cmp setup
+
+local lspkind = require "lspkind"
+lspkind.init()
+
+
 local cmp = require 'cmp'
 cmp.setup {
   snippet = {
@@ -52,4 +56,20 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
   },
+
+  formatting = {
+    format = lspkind.cmp_format {
+      with_text = true,
+      menu = {
+        buffer = "[buf]",
+        nvim_lsp = "[LSP]",
+        nvim_lua = "[api]",
+        path = "[path]",
+        luasnip = "[snip]",
+        gh_issues = "[issues]",
+      },
+    },
+  },
+
+
 }
