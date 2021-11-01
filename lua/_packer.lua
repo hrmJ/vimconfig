@@ -38,5 +38,6 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-nvim-lsp'
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
+  use 'christianchiarulli/nvcode-color-schemes.vim'
 end)
 
