@@ -1,5 +1,4 @@
 
-local nvim_lsp = require 'lspconfig'
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
@@ -8,9 +7,15 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 require("null-ls").config {}
 require("lspconfig")["null-ls"].setup {}
 
--- make sure to only run this once!
-nvim_lsp.tsserver.setup {
-    on_attach = function(client, bufnr)
+
+local lsp_installer = require("nvim-lsp-installer")
+
+lsp_installer.on_server_ready(function(server)
+    local opts = {}
+
+    -- (optional) Customize the options passed to the server
+    if server.name == "tsserver" then
+      opts.on_attach = function(client, bufnr)
         -- disable tsserver formatting if you plan on formatting via null-ls
         client.resolved_capabilities.document_formatting = false
         client.resolved_capabilities.document_range_formatting = false
@@ -39,7 +44,7 @@ nvim_lsp.tsserver.setup {
             eslint_enable_code_actions = true,
             eslint_enable_disable_comments = true,
             eslint_bin = "eslint_d",
-            eslint_enable_diagnostics = false,
+            eslint_enable_diagnostics = true,
             eslint_opts = {},
 
             -- formatting
@@ -93,4 +98,9 @@ nvim_lsp.tsserver.setup {
 
 
     end
-}
+    end
+
+    -- This setup() function is exactly the same as lspconfig's setup function.
+    -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/ADVANCED_README.md
+    server:setup(opts)
+end)

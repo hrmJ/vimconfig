@@ -23,12 +23,14 @@ require('packer').startup(function()
   use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines
   use 'tpope/vim-surround'
   use 'tomasiser/vim-code-dark'
+  use 'Raimondi/delimitMate'
 
   use 'mattn/efm-langserver'
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'jose-elias-alvarez/nvim-lsp-ts-utils'
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use 'windwp/nvim-ts-autotag'
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
 
 
@@ -62,6 +64,15 @@ require('packer').startup(function()
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
   use 'christianchiarulli/nvcode-color-schemes.vim'
   use 'tjdevries/complextras.nvim'
+  use {'nvim-telescope/telescope-hop.nvim'}
+
+  use {
+    'phaazon/hop.nvim',
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+    end
+  }
 
 end)
 
