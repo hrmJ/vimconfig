@@ -24,11 +24,15 @@ require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'tomasiser/vim-code-dark'
 
-  -- UI to select things (files, grep results, open buffers...)
+
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
-  use 'joshdick/onedark.vim' -- Theme inspired by Atom
-  use 'itchyny/lightline.vim' -- Fancier statusline
   use 'onsails/lspkind-nvim'
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true}
+  }
+
   -- Add indentation guides even on blank lines
   use 'lukas-reineke/indent-blankline.nvim'
   -- Add git related info in the signs columns and popups
