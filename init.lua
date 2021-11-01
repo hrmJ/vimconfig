@@ -1,5 +1,5 @@
 
-require('_packer')
+require('plugins')
 require('_lsp-config')
 require('cmp-config')
 require('treesitter-config')
