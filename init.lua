@@ -8,4 +8,4 @@ require('keys')
 require('search-options')
 require('telescope-config')
 require('statusline')
-
+require('formatting')

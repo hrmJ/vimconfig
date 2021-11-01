@@ -13,6 +13,7 @@ local lsp_installer = require("nvim-lsp-installer")
 lsp_installer.on_server_ready(function(server)
     local opts = {}
 
+
     -- (optional) Customize the options passed to the server
     if server.name == "tsserver" then
       opts.on_attach = function(client, bufnr)
@@ -62,6 +63,8 @@ lsp_installer.on_server_ready(function(server)
             filter_out_diagnostics_by_code = {},
         }
 
+
+
         -- required to fix code action ranges and filter diagnostics
         ts_utils.setup_client(client)
 
@@ -104,3 +107,11 @@ lsp_installer.on_server_ready(function(server)
     -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/ADVANCED_README.md
     server:setup(opts)
 end)
+
+vim.fn.sign_define("LspDiagnosticsSignError", {text = "", numhl = "LspDiagnosticsDefaultError"})
+vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", numhl = "LspDiagnosticsDefaultWarning"})
+vim.fn.sign_define("LspDiagnosticsSignInformation", {text = "", numhl = "LspDiagnosticsDefaultInformation"})
+vim.fn.sign_define("LspDiagnosticsSignHint", {text = "", numhl = "LspDiagnosticsDefaultHint"})
+
+
+
