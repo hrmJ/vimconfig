@@ -69,6 +69,10 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  LuaSnip = {
+    loaded = true,
+    path = "/home/juho/.local/share/nvim/site/pack/packer/start/LuaSnip"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/juho/.local/share/nvim/site/pack/packer/start/cmp-buffer"
@@ -84,6 +88,10 @@ _G.packer_plugins = {
   ["cmp-path"] = {
     loaded = true,
     path = "/home/juho/.local/share/nvim/site/pack/packer/start/cmp-path"
+  },
+  ["lspkind-nvim"] = {
+    loaded = true,
+    path = "/home/juho/.local/share/nvim/site/pack/packer/start/lspkind-nvim"
   },
   ["nvcode-color-schemes.vim"] = {
     loaded = true,
