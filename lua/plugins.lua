@@ -65,10 +65,15 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-buffer'
   use 'saadparwaiz1/cmp_luasnip'
+  use 'hrsh7th/cmp-vsnip'
+  use 'hrsh7th/vim-vsnip'
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
   use 'christianchiarulli/nvcode-color-schemes.vim'
   use 'tjdevries/complextras.nvim'
   use {'nvim-telescope/telescope-hop.nvim'}
+
+  use 'andys8/vscode-jest-snippets'
+
 
   use {
     'phaazon/hop.nvim',
