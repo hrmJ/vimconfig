@@ -2,11 +2,17 @@
 
 
 
+local null_ls = require('null-ls')
 
-require("null-ls").config {
-    sources = { require("null-ls").builtins.formatting.prettierd }
+null_ls.config {
+    sources = { 
+      null_ls.builtins.formatting.prettierd,
+      null_ls.builtins.code_actions.gitsigns 
+    }
 }
+
 require("lspconfig")["null-ls"].setup {}
+
 local configs = require'lspconfig/configs'
 configs.ls_emmet = {
   default_config = {
