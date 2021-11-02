@@ -33,6 +33,9 @@ require('packer').startup(function()
   use 'windwp/nvim-ts-autotag'
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
+  use { "rcarriga/vim-ultest", requires = {"vim-test/vim-test"}, run = ":UpdateRemotePlugins" }
+
+  use 'jgdavey/tslime.vim'
 
 
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
