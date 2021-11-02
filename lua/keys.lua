@@ -2,6 +2,9 @@
 
 vim.g.mapleader = ','
 
+vim.api.nvim_set_keymap('n', '<leader>a', ':Telescope lsp_code_actions theme=cursor<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>rr', ':Telescope lsp_references theme=cursor<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>dd', ':Telescope lsp_implementations theme=cursor<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>tl', ':Telescope<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>o', ':Telescope treesitter<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>f', ':Telescope git_files<CR>', { noremap = true, silent = true })
