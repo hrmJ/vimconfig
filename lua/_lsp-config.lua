@@ -13,18 +13,6 @@ null_ls.config {
 
 require("lspconfig")["null-ls"].setup {}
 
-local configs = require'lspconfig/configs'
-configs.ls_emmet = {
-  default_config = {
-    cmd = { 'ls_emmet', '--stdio' };
-    filetypes = { 'html', 'css', 'scss', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'haml',
-      'xml', 'xsl', 'pug', 'slim', 'sass', 'stylus', 'less', 'sss'};
-    root_dir = function(fname)
-      return vim.loop.cwd()
-    end;
-    settings = {};
-  };
-}
 
 
 local lsp_installer = require("nvim-lsp-installer")
@@ -61,6 +49,12 @@ lsp_installer.on_server_ready(function(server)
 
 
     if server.name == "emmet_ls" then
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities.textDocument.completion.completionItem.snippetSupport = true
+      opts.capabilities = capabilities
+      opts.filetypes = {
+      'html', 'css', 'scss', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'haml',
+      'xml', 'xsl', 'pug', 'slim', 'sass', 'stylus', 'less', 'sss'}
       -- opts.on_attach = function(client, bufnr)
       -- client.resolved_capabilities.textDocument.completion.completionItem.snippetSupport = true
       -- end
@@ -139,6 +133,8 @@ vim.fn.sign_define("LspDiagnosticsSignError", {text = "", numhl = "LspDiagnos
 vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", numhl = "LspDiagnosticsDefaultWarning"})
 vim.fn.sign_define("LspDiagnosticsSignInformation", {text = "", numhl = "LspDiagnosticsDefaultInformation"})
 vim.fn.sign_define("LspDiagnosticsSignHint", {text = "", numhl = "LspDiagnosticsDefaultHint"})
+
+
 
 
 
