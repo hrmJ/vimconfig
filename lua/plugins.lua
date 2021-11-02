@@ -116,6 +116,8 @@ require('packer').startup(function()
     end
   }
 
+  use 'simrat39/symbols-outline.nvim'
+
 
 end)
 

@@ -2,6 +2,9 @@
 
 vim.g.mapleader = ','
 
+vim.api.nvim_set_keymap('n', '<leader>t', ':SymbolsOutline<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>c', ':Telescope  git_commits<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>s', ':Telescope  git_status<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>a', ':Telescope lsp_code_actions theme=cursor<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>rr', ':Telescope lsp_references theme=cursor<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>dd', ':Telescope lsp_implementations theme=cursor<CR>', { noremap = true, silent = true })
@@ -12,7 +15,7 @@ vim.api.nvim_set_keymap('n', '<leader>g', ':Telescope live_grep<CR>', { noremap 
 vim.api.nvim_set_keymap('v', '<leader>s', ':Telescope grep_string<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>b', ':Telescope buffers<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope file_browser<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-l>', ':Telescope current_buffer_fuzzy_find<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-l>', ':Telescope current_buffer_fuzzy_find theme=dropdown<CR>', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<leader><leader>f', ':HopChar1 <CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader><leader>l', ':HopPattern <CR>', { noremap = true, silent = true })
