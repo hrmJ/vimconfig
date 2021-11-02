@@ -23,3 +23,6 @@ vim.api.nvim_set_keymap('n', 't<C-f>', ':Ultest<CR>', { noremap = true, silent =
 vim.api.nvim_set_keymap('n', 't<C-o>', ':UltestOutput<CR>', { noremap = true, silent = true })
 
 
+vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '-', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+

@@ -73,6 +73,15 @@ require('packer').startup(function()
   use {'nvim-telescope/telescope-hop.nvim'}
 
   use 'andys8/vscode-jest-snippets'
+  use {
+    "ray-x/lsp_signature.nvim",
+  }
+
+  use {
+      'kyazdani42/nvim-tree.lua',
+      requires = 'kyazdani42/nvim-web-devicons',
+      config = function() require'nvim-tree'.setup {} end
+  }
 
 
   use {
@@ -108,3 +117,5 @@ require('gitsigns').setup {
     changedelete = { hl = 'GitGutterChange', text = '~' },
   },
 }
+
+require'nvim-tree'.setup()

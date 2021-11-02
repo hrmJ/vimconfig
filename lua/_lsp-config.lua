@@ -1,11 +1,22 @@
 
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 
 
 require("null-ls").config {}
 require("lspconfig")["null-ls"].setup {}
+local configs = require'lspconfig/configs'
+configs.ls_emmet = {
+  default_config = {
+    cmd = { 'ls_emmet', '--stdio' };
+    filetypes = { 'html', 'css', 'scss', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'haml',
+      'xml', 'xsl', 'pug', 'slim', 'sass', 'stylus', 'less', 'sss'};
+    root_dir = function(fname)
+      return vim.loop.cwd()
+    end;
+    settings = {};
+  };
+}
 
 
 local lsp_installer = require("nvim-lsp-installer")
@@ -13,6 +24,12 @@ local lsp_installer = require("nvim-lsp-installer")
 lsp_installer.on_server_ready(function(server)
     local opts = {}
 
+
+    if server.name == "emmet_ls" then
+      opts.on_attach = function(client, bufnr)
+      capabilities.textDocument.completion.completionItem.snippetSupport = true
+      end
+    end
 
     -- (optional) Customize the options passed to the server
     if server.name == "tsserver" then
@@ -62,6 +79,8 @@ lsp_installer.on_server_ready(function(server)
             filter_out_diagnostics_by_severity = {},
             filter_out_diagnostics_by_code = {},
         }
+
+        require "lsp_signature".on_attach() 
 
 
 
