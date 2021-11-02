@@ -3,7 +3,9 @@
 
 
 
-require("null-ls").config {}
+require("null-ls").config {
+    sources = { require("null-ls").builtins.formatting.prettierd }
+}
 require("lspconfig")["null-ls"].setup {}
 local configs = require'lspconfig/configs'
 configs.ls_emmet = {
