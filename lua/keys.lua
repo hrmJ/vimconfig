@@ -2,6 +2,7 @@
 
 vim.g.mapleader = ','
 
+vim.api.nvim_set_keymap('n', '<leader>tl', ':Telescope<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>o', ':Telescope treesitter<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>f', ':Telescope git_files<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>g', ':Telescope live_grep<CR>', { noremap = true, silent = true })
@@ -13,6 +14,8 @@ vim.api.nvim_set_keymap('n', '<C-l>', ':Telescope current_buffer_fuzzy_find<CR>'
 vim.api.nvim_set_keymap('n', '<leader><leader>f', ':HopChar1 <CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader><leader>l', ':HopPattern <CR>', { noremap = true, silent = true })
 vim.cmd[[nnoremap <silent> <Leader>e <Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>]]
+
+vim.api.nvim_set_keymap('n', '<Leader><space>', ':Format <CR>', { noremap = true, silent = true })
 
 
 vim.api.nvim_set_keymap('i', ',,', '<c-o>a', { noremap = true, silent = true })
