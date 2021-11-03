@@ -117,8 +117,12 @@ require('packer').startup(function()
     end
   }
 
+
   use 'simrat39/symbols-outline.nvim'
 
+	use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
+	use {'junegunn/fzf.vim'}
+  use 'Olical/vim-enmasse'
 
 end)
 

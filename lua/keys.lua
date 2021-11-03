@@ -12,10 +12,11 @@ vim.api.nvim_set_keymap('n', '<leader>tl', ':Telescope<CR>', { noremap = true, s
 vim.api.nvim_set_keymap('n', '<leader>o', ':Telescope treesitter<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>f', ':Telescope git_files<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>g', ':Telescope live_grep<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', '<leader>s', ':Telescope grep_string<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>b', ':Telescope buffers<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope file_browser<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope find_files<CR>', { noremap = true, silent = true })
+
 vim.api.nvim_set_keymap('n', '<C-l>', ':Telescope current_buffer_fuzzy_find theme=dropdown<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-l><C-l>', ":lua require('telescope.builtin').live_grep({grep_open_files=true})<CR>", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<leader><leader>f', ':HopChar1 <CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader><leader>l', ':HopPattern <CR>', { noremap = true, silent = true })
@@ -31,7 +32,15 @@ vim.api.nvim_set_keymap('n', 't<C-n>', ':UltestNearest<CR>', { noremap = true, s
 vim.api.nvim_set_keymap('n', 't<C-f>', ':Ultest<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 't<C-o>', ':UltestOutput<CR>', { noremap = true, silent = true })
 
-
 vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '-', ':e %:h<CR><CR>', { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<C-c>', ':bd<CR>', { noremap = true, silent = true })
+
+
+vim.api.nvim_set_keymap('v', '<leader>s', ':Telescope grep_string<CR>', { noremap = true, silent = true })
+
+
+
+vim.api.nvim_set_keymap('v', '<leader>w', ":lua require('telescope.builtin').grep_string({disable_coordinates=true, word_match = '-w'})<CR>", { noremap = true, silent = true })
 
