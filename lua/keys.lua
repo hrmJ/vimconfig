@@ -15,8 +15,11 @@ vim.api.nvim_set_keymap('n', '<leader>g', ':Telescope live_grep<CR>', { noremap 
 vim.api.nvim_set_keymap('n', '<leader>b', ':Telescope buffers<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope find_files<CR>', { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap('n', '<C-l>', ':Telescope current_buffer_fuzzy_find theme=dropdown<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-l><C-l>', ":lua require('telescope.builtin').live_grep({grep_open_files=true})<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-l>', ':BufferLines<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-l><C-l>', ":Lines<CR>", { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<M-l>', ':Telescope current_buffer_fuzzy_find theme=dropdown<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<M-l><M-l>', ":lua require('telescope.builtin').live_grep({grep_open_files=true})<CR>", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<leader><leader>f', ':HopChar1 <CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader><leader>l', ':HopPattern <CR>', { noremap = true, silent = true })
