@@ -32,6 +32,8 @@ require('packer').startup(function()
   use 'jose-elias-alvarez/nvim-lsp-ts-utils'
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use 'windwp/nvim-ts-autotag'
+  use 'jalvesaq/Nvim-R'
+
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   use { "rcarriga/vim-ultest", requires = {"vim-test/vim-test"}, run = ":UpdateRemotePlugins" }
