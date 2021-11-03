@@ -1,4 +1,4 @@
 vim.o.termguicolors = true
-vim.cmd [[ colorscheme nvcode ]]
+vim.cmd [[ colorscheme codedark ]]
 
 
