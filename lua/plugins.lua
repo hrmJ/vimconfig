@@ -25,6 +25,7 @@ require('packer').startup(function()
   use 'tomasiser/vim-code-dark'
   use 'Raimondi/delimitMate'
   use 'joshdick/onedark.vim' 
+  use 'arkav/lualine-lsp-progress'
 
   use 'mattn/efm-langserver'
   use 'jose-elias-alvarez/null-ls.nvim'

@@ -1,5 +1,6 @@
 require('plugins')
 require('_lsp-config')
+require('_lsp-config-emmet')
 require('cmp-config')
 require('treesitter-config')
 require('colors')

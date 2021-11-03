@@ -17,16 +17,14 @@ require("lualine").setup({
   extensions = {
     'fzf'
   },
+  options =  {
+    theme = 'OceanicNext'
+  },
   sections = {
-    lualine_c = {
+    lualine_x = {
       { gps.get_location, condition = gps.is_available },
     },
   },
-  -- tabline = {
-  --   lualine_c = {},
-  --   lualine_a = {},
-  --   lualine_b = {},
-  --   lualine_y = {},
-  --   lualine_z = {}
-  -- },
+   tabline = {
+   },
 })
