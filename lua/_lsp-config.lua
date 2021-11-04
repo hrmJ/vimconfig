@@ -135,9 +135,8 @@ vim.fn.sign_define("LspDiagnosticsSignInformation", {text = "", numhl = "LspD
 vim.fn.sign_define("LspDiagnosticsSignHint", {text = "", numhl = "LspDiagnosticsDefaultHint"})
 
 
-
 -- vim.cmd [[ 
--- autocmd FileType javascript javascript autocmd BufWritePre <buffer> EslintFixAll
+-- -- autocmd FileType javascript javascript autocmd BufWritePre <buffer> EslintFixAll
 -- ]]
 
 

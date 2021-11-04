@@ -83,7 +83,6 @@ require('packer').startup(function()
   use {
       'kyazdani42/nvim-tree.lua',
       requires = 'kyazdani42/nvim-web-devicons',
-      config = function() require'nvim-tree'.setup {} end
   }
 
 
@@ -126,8 +125,32 @@ require('packer').startup(function()
 	use {'junegunn/fzf.vim'}
   use 'Olical/vim-enmasse'
 
+  use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
+
+  use 'mfussenegger/nvim-dap'
+
+  use {
+    "AckslD/nvim-neoclip.lua",
+    config = function()
+      require('neoclip').setup()
+    end,
+  }
+
+  use {
+    "ahmedkhalf/project.nvim",
+    config = function()
+      require("project_nvim").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  }
+
+
 end)
 
+require('neoclip').setup()
 
 require('gitsigns').setup {
   signs = {
@@ -139,4 +162,19 @@ require('gitsigns').setup {
   },
 }
 
-require'nvim-tree'.setup()
+vim.cmd [[let g:nvim_tree_respect_buf_cwd = 1]]
+
+require'nvim-tree'.setup({
+  disable_netrw       = true,
+  hijack_netrw        = true,
+  open_on_setup       = false,
+  ignore_ft_on_setup  = {},
+  auto_close          = false,
+  open_on_tab         = false,
+  hijack_cursor       = false,
+  update_cwd          = false,
+  update_to_buf_dir   = {
+    enable = true,
+    auto_open = true,
+  },
+})
