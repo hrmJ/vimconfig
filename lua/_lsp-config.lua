@@ -136,5 +136,8 @@ vim.fn.sign_define("LspDiagnosticsSignHint", {text = "", numhl = "LspDiagnost
 
 
 
+-- vim.cmd [[ 
+-- autocmd FileType javascript javascript autocmd BufWritePre <buffer> EslintFixAll
+-- ]]
 
 
