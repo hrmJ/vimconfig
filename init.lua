@@ -43,7 +43,12 @@ require('packer').startup(function()
 end)
 
 
-require'navigator'.setup()
+require'navigator'.setup({
+   lsp = {
+     format_on_save = true
+   }
+ }
+)
 
 vim.o.termguicolors = true
 vim.opt.nu = true
