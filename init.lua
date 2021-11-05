@@ -25,6 +25,8 @@ require('packer').startup(function()
   use 'Raimondi/delimitMate'
 
   use 'neovim/nvim-lspconfig'
+  use 'williamboman/nvim-lsp-installer'
+
   use {'tomasiser/vim-code-dark', config ='vim.cmd[[colorscheme codedark]]'}
   use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
@@ -40,12 +42,14 @@ require('packer').startup(function()
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
+
 end)
 
 
 require'navigator'.setup({
    lsp = {
-     format_on_save = true
+     format_on_save = true,
+     diagnostic_virtual_text = true  
    }
  }
 )
