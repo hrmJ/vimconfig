@@ -47,10 +47,19 @@ require('packer').startup(function()
 
 end)
 
+
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+
 require("null-ls").config {}
 require("lspconfig")["null-ls"].setup {}
 require'navigator'.setup({
+   icons = {
+      diagnostic_err = "",
+      diagnostic_warn = " ",
+      diagnostic_hint = " "
+   },
    lsp = {
+     code_action = {enable = true, sign = false, sign_priority = 40, virtual_text = false},
      format_on_save = false,
      diagnostic_virtual_text = false,
      tsserver = {
