@@ -41,7 +41,7 @@ vim.api.nvim_set_keymap('n', 't<C-f>', ':Ultest<CR>', { noremap = true, silent =
 vim.api.nvim_set_keymap('n', 't<C-o>', ':UltestOutput<CR>', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '-', ':e %:h<CR><CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '-', ':NvimTreeFindFileToggle<CR>', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<C-c>', ':bd<CR>', { noremap = true, silent = true })
 
