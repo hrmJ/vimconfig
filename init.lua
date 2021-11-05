@@ -32,6 +32,7 @@ require('packer').startup(function()
   use {'ms-jpq/coq.thirdparty', branch= '3p'}
   use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
   use {'junegunn/fzf.vim'}
+  use 'tpope/vim-eunuch'
 
   use {
     'nvim-telescope/telescope.nvim',
@@ -58,9 +59,11 @@ set shiftwidth=2
 set smartindent
 set softtabstop=2
 set tabstop=2
+set nohlsearch
 ]]
 
 
 
 require('keys')
+require('telescope-config')
 vim.cmd('source ~/.config/nvim/vim/vimkeys.vim')
