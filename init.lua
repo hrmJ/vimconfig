@@ -43,6 +43,7 @@ require('packer').startup(function()
     requires = { {'nvim-lua/plenary.nvim'} }
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use 'kyazdani42/nvim-web-devicons'
 
 
 end)
@@ -127,4 +128,5 @@ set nohlsearch
 require('keys')
 require('telescope-config')
 require('linters-config')
+require'nvim-web-devicons'.setup()
 vim.cmd('source ~/.config/nvim/vim/vimkeys.vim')
