@@ -33,6 +33,7 @@ require('packer').startup(function()
   use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use {'ms-jpq/coq_nvim', branch= 'coq', run=':COQdeps'}
+  use {'ms-jpq/coq.artifacts', branch= 'artifacts'}
   use {'ms-jpq/coq.thirdparty', branch= '3p'}
   use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
   use {'junegunn/fzf.vim'}
@@ -138,3 +139,9 @@ require('telescope-config')
 require('linters-config')
 require'nvim-web-devicons'.setup()
 vim.cmd('source ~/.config/nvim/vim/vimkeys.vim')
+vim.cmd [[ autocmd VimEnter * COQnow --shut-up ]]
+
+vim.cmd [[ 
+let g:coq_settings = { 'keymap.jump_to_mark': '<c-j>' }
+
+]]
