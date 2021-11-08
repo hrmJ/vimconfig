@@ -32,9 +32,6 @@ require('packer').startup(function()
   use {'tomasiser/vim-code-dark', config ='vim.cmd[[colorscheme codedark]]'}
   use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-  use {'ms-jpq/coq_nvim', branch= 'coq', run=':COQdeps'}
-  use {'ms-jpq/coq.artifacts', branch= 'artifacts'}
-  use {'ms-jpq/coq.thirdparty', branch= '3p'}
   use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
   use {'junegunn/fzf.vim'}
   use 'tpope/vim-eunuch'
@@ -57,63 +54,17 @@ require('packer').startup(function()
 
 end)
 
+require'lspconfig'.tsserver.setup{
 
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+  on_attach = function()
+    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-require("null-ls").config {}
-require("lspconfig")["null-ls"].setup {}
-require'navigator'.setup({
-   icons = {
-      diagnostic_err = "",
-      diagnostic_warn = " ",
-      diagnostic_hint = " "
-   },
-   lsp = {
-     code_action = {enable = true, sign = false, sign_priority = 40, virtual_text = false},
-     format_on_save = false,
-     diagnostic_virtual_text = false,
-     tsserver = {
-         -- filetypes = {"typescript", "typescriptreact", "javascript", "javascriptreact"},
-         on_attach = function(client, bufnr)
-             local ts_utils = require("nvim-lsp-ts-utils")
-             ts_utils.setup {
-                 debug = false,
-                 disable_commands = false,
-                 enable_import_on_completion = false,
-                 import_on_completion_timeout = 5000,
-                 -- eslint
-                 eslint_enable_code_actions = false,
-                 eslint_bin = "eslint_d",
-                 -- eslint_args = {"-f", "json", "--stdin", "--stdin-filename", "$FILENAME"},
-                 eslint_enable_disable_comments = true,
-                 -- eslint diagnostics
-                 eslint_enable_diagnostics = false,
-                 eslint_diagnostics_debounce = 250,
-                 -- formatting
-                 enable_formatting = true,
-                 formatter = "prettierd",
-                 formatter_args = {"--stdin-filepath", "$FILENAME"},
-                 format_on_save = true,
-                 no_save_after_format = false,
-                 -- parentheses completion
-                 complete_parens = false,
-                 signature_help_in_parens = true,
-                 -- update imports on file move
-                 update_imports_on_move = true,
-                 require_confirmation_on_move = false,
-             }
-             client.resolved_capabilities.document_formatting = false
-             -- define an alias
-             vim.cmd("command -buffer Formatting lua vim.lsp.buf.formatting()")
-             vim.cmd("command -buffer FormattingSync lua vim.lsp.buf.formatting_sync()")
-             -- format on save
-             vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
-             ts_utils.setup_client(client)
-         end
-    }
-   }
- }
-)
+    -- Enable completion triggered by <c-x><c-o>
+    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+  end
+
+}
 
 vim.o.termguicolors = true
 vim.opt.nu = true
@@ -136,12 +87,6 @@ set nohlsearch
 
 require('keys')
 require('telescope-config')
-require('linters-config')
 require'nvim-web-devicons'.setup()
 vim.cmd('source ~/.config/nvim/vim/vimkeys.vim')
-vim.cmd [[ autocmd VimEnter * COQnow --shut-up ]]
 
-vim.cmd [[ 
-let g:coq_settings = { 'keymap.jump_to_mark': '<c-j>' }
-
-]]
