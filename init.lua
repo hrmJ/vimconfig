@@ -137,6 +137,7 @@ set nohlsearch
 require('keys')
 require('telescope-config')
 require('linters-config')
+require('treesitter-conf')
 require'nvim-web-devicons'.setup()
 vim.cmd('source ~/.config/nvim/vim/vimkeys.vim')
 vim.cmd [[ autocmd VimEnter * COQnow --shut-up ]]
