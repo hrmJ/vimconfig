@@ -84,10 +84,12 @@ require'navigator'.setup({
      code_action = {enable = true, sign = false, sign_priority = 40, virtual_text = false},
      format_on_save = false,
      diagnostic_virtual_text = false,
+     flags = {allow_incremental_sync = true, debounce_text_changes = 1000},
      tsserver = {
          -- filetypes = {"typescript", "typescriptreact", "javascript", "javascriptreact"},
          on_attach = function(client, bufnr)
              local ts_utils = require("nvim-lsp-ts-utils")
+
              ts_utils.setup {
                  debug = false,
                  disable_commands = false,
@@ -153,6 +155,15 @@ require('treesitter-conf')
 require('cmp-config')
 require'nvim-web-devicons'.setup()
 vim.cmd('source ~/.config/nvim/vim/vimkeys.vim')
+
+vim.cmd [[
+
+  let g:ultest_use_pty = 1
+  let test#javascript#reactscripts#options = "--watchAll=false"
+
+]]
+
+
 -- vim.cmd [[ autocmd VimEnter * COQnow --shut-up ]]
 
 -- vim.cmd [[ 
