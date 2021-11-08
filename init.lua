@@ -32,12 +32,24 @@ require('packer').startup(function()
   use {'tomasiser/vim-code-dark', config ='vim.cmd[[colorscheme codedark]]'}
   use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-  use {'ms-jpq/coq_nvim', branch= 'coq', run=':COQdeps'}
-  use {'ms-jpq/coq.artifacts', branch= 'artifacts'}
-  use {'ms-jpq/coq.thirdparty', branch= '3p'}
   use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
   use {'junegunn/fzf.vim'}
   use 'tpope/vim-eunuch'
+
+
+  use 'onsails/lspkind-nvim'
+  use 'L3MON4D3/LuaSnip' -- Snippets plugin
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'hrsh7th/nvim-cmp' 
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-vsnip'
+  use 'hrsh7th/vim-vsnip'
+
+
+  use { "rcarriga/vim-ultest", requires = {"vim-test/vim-test"}, run = ":UpdateRemotePlugins" }
 
   use {
     'nvim-telescope/telescope.nvim',
@@ -138,11 +150,12 @@ require('keys')
 require('telescope-config')
 require('linters-config')
 require('treesitter-conf')
+require('cmp-config')
 require'nvim-web-devicons'.setup()
 vim.cmd('source ~/.config/nvim/vim/vimkeys.vim')
-vim.cmd [[ autocmd VimEnter * COQnow --shut-up ]]
+-- vim.cmd [[ autocmd VimEnter * COQnow --shut-up ]]
 
-vim.cmd [[ 
-let g:coq_settings = { 'keymap.jump_to_mark': '<c-j>' }
-
-]]
+-- vim.cmd [[ 
+-- let g:coq_settings = { 'keymap.jump_to_mark': '<c-j>' }
+-- 
+-- ]]
