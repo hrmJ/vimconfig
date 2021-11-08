@@ -1,108 +1,83 @@
-local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
+vim.cmd [[set runtimepath=$VIMRUNTIME]]
+vim.cmd [[set packpath=/tmp/nvim/site]]
 
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+local package_root = '/tmp/nvim/site/pack'
+local install_path = package_root .. '/packer/start/packer.nvim'
+
+local function load_plugins()
+  require('packer').startup {
+    {
+      'wbthomason/packer.nvim',
+      'neovim/nvim-lspconfig',
+    },
+    config = {
+      package_root = package_root,
+      compile_path = install_path .. '/plugin/packer_compiled.lua',
+    },
+  }
 end
 
-vim.api.nvim_exec(
-  [[
-  augroup Packer
-    autocmd!
-    autocmd BufWritePost init.lua PackerCompile
-  augroup end
-]],
-  false
-)
-
-local use = require('packer').use
-
-require('packer').startup(function()
-  use 'wbthomason/packer.nvim'
-
-  use 'tpope/vim-fugitive' -- Git commands in nvim
-  use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines
-  use 'tpope/vim-surround'
-  use 'Raimondi/delimitMate'
-
-  use 'neovim/nvim-lspconfig'
-  use 'williamboman/nvim-lsp-installer'
-  use 'jose-elias-alvarez/null-ls.nvim'
-  use 'jose-elias-alvarez/nvim-lsp-ts-utils'
-
-  use {'tomasiser/vim-code-dark', config ='vim.cmd[[colorscheme codedark]]'}
-  use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-  use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
-  use {'junegunn/fzf.vim'}
-  use 'tpope/vim-eunuch'
-
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use 'kyazdani42/nvim-web-devicons'
-  use {
-      'kyazdani42/nvim-tree.lua',
-      requires = 'kyazdani42/nvim-web-devicons',
-      config = function() require'nvim-tree'.setup {
-        disable_netrw       = false,
-        hijack_netrw        = false,
-      } end
-  }
-
-
-end)
-
-
-
-local lsp_installer_servers = require'nvim-lsp-installer.servers'
-
-local servers = {'tsserver'}
-
-for _, lsp in ipairs(servers) do
-  local server_available, requested_server = lsp_installer_servers.get_server(lsp)
-  if server_available then
-      requested_server:on_ready(function ()
-          requested_server:setup{
-            on_attach = function()
-              local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-              local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-              -- Enable completion triggered by <c-x><c-o>
-              buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-            end
-            }
-      end)
-      if not requested_server:is_installed() then
-          -- Queue the server to be installed
-          requested_server:install()
-      end
+_G.load_config = function()
+  vim.lsp.set_log_level 'trace'
+  if vim.fn.has 'nvim-0.5.1' == 1 then
+    require('vim.lsp.log').set_format_func(vim.inspect)
   end
+  local nvim_lsp = require 'lspconfig'
+  local on_attach = function(_, bufnr)
+    local function buf_set_keymap(...)
+      vim.api.nvim_buf_set_keymap(bufnr, ...)
+    end
+    local function buf_set_option(...)
+      vim.api.nvim_buf_set_option(bufnr, ...)
+    end
+
+    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+    -- Mappings.
+    local opts = { noremap = true, silent = true }
+    buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+    buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+    buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+    buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+    buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+    buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+    buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+    buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+    buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+    buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+    buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+    buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  end
+
+  -- Add the server that troubles you here
+  local name = 'tsserver'
+  --local cmd = { 'pyright-langserver', '--stdio' } -- needed for elixirls, omnisharp, sumneko_lua
+  if not name then
+    print 'You have not defined a server name, please edit minimal_init.lua'
+  end
+  if not nvim_lsp[name].document_config.default_config.cmd and not cmd then
+    print [[You have not defined a server default cmd for a server
+      that requires it please edit minimal_init.lua]]
+  end
+
+  nvim_lsp[name].setup {
+    cmd = cmd,
+    on_attach = on_attach,
+  }
+
+  print [[You can find your log at $HOME/.cache/nvim/lsp.log. Please paste in a github issue under a details tag as described in the issue template.]]
 end
 
-
-
-vim.o.termguicolors = true
-vim.opt.nu = true
-vim.opt.rnu = true
-vim.opt.wrap = false
-vim.opt.expandtab = true
-vim.opt.hidden = true
-
-vim.cmd [[
-set autoindent
-set expandtab
-set shiftwidth=2
-set smartindent
-set softtabstop=2
-set tabstop=2
-set nohlsearch
-]]
-
-
-
-require('keys')
-require('telescope-config')
-require'nvim-web-devicons'.setup()
-vim.cmd('source ~/.config/nvim/vim/vimkeys.vim')
-
+if vim.fn.isdirectory(install_path) == 0 then
+  vim.fn.system { 'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path }
+  load_plugins()
+  require('packer').sync()
+  vim.cmd [[autocmd User PackerComplete ++once lua load_config()]]
+else
+  load_plugins()
+  require('packer').sync()
+  _G.load_config()
+end
