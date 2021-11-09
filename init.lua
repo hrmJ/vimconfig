@@ -29,11 +29,11 @@ require('packer').startup(function()
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
-  -- use {'tomasiser/vim-code-dark', config ='vim.cmd[[colorscheme codedark]]'}
+  use {'tomasiser/vim-code-dark'}
   use {'sainnhe/sonokai'}
 
   use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
-  -- use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
   use {'junegunn/fzf.vim'}
   use 'tpope/vim-eunuch'
@@ -111,7 +111,7 @@ require('hop').setup()
 require('keys')
 require('telescope-config')
 -- require('linters-config')
--- require('treesitter-conf')
+require('treesitter-conf')
 -- require('cmp-config')
 require'nvim-web-devicons'.setup()
 vim.cmd('source ~/.config/nvim/vim/vimkeys.vim')
