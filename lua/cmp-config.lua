@@ -2,12 +2,12 @@ vim.opt.completeopt = { "menu", "menuone", "noselect" }
 -- Don't show the dumb matching stuff.
 vim.opt.shortmess:append "c"
 -- Complextras.nvim configuration
-vim.api.nvim_set_keymap(
-  "i",
-  "<C-x><C-m>",
-  [[<c-r>=luaeval("require('complextras').complete_matching_line()")<CR>]],
-  { noremap = true }
-)
+-- vim.api.nvim_set_keymap(
+--   "i",
+--   "<C-x><C-m>",
+--   [[<c-r>=luaeval("require('complextras').complete_matching_line()")<CR>]],
+--   { noremap = true }
+-- )
 
 local luasnip = require 'luasnip'
 

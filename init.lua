@@ -96,12 +96,12 @@ require'navigator'.setup({
                  enable_import_on_completion = false,
                  import_on_completion_timeout = 5000,
                  -- eslint
-                 eslint_enable_code_actions = false,
+                 eslint_enable_code_actions = true,
                  eslint_bin = "eslint_d",
                  -- eslint_args = {"-f", "json", "--stdin", "--stdin-filename", "$FILENAME"},
                  eslint_enable_disable_comments = true,
                  -- eslint diagnostics
-                 eslint_enable_diagnostics = false,
+                 eslint_enable_diagnostics = true,
                  eslint_diagnostics_debounce = 250,
                  -- formatting
                  enable_formatting = true,
@@ -162,6 +162,10 @@ vim.cmd [[
   let test#javascript#reactscripts#options = "--watchAll=false"
 
 ]]
+
+-- use omnifunc
+-- vim.api.nvim_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+-- vim.opt.completeopt = {'noinsert', 'menuone', 'noselect'}
 
 
 -- vim.cmd [[ autocmd VimEnter * COQnow --shut-up ]]
