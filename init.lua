@@ -29,9 +29,11 @@ require('packer').startup(function()
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
-  use {'tomasiser/vim-code-dark', config ='vim.cmd[[colorscheme codedark]]'}
+  -- use {'tomasiser/vim-code-dark', config ='vim.cmd[[colorscheme codedark]]'}
+  use {'sainnhe/sonokai'}
+
   use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  -- use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
   use {'junegunn/fzf.vim'}
   use 'tpope/vim-eunuch'
@@ -66,6 +68,16 @@ require('packer').startup(function()
       } end
   }
 
+  use {
+    'phaazon/hop.nvim',
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+    end
+  }
+
+
+  use 'andys8/vscode-jest-snippets'
 
 end)
 
@@ -77,13 +89,14 @@ require("lspconfig")["null-ls"].setup {}
 require'navigator'.setup({
    icons = {
       diagnostic_err = "",
-      diagnostic_warn = " ",
-      diagnostic_hint = " "
+      diagnostic_warn = " ", diagnostic_hint = " "
    },
    lsp = {
      code_action = {enable = true, sign = false, sign_priority = 40, virtual_text = false},
-     format_on_save = false,
+     format_on_save = true,
      diagnostic_virtual_text = false,
+     diagnostic_underline = false,
+     diagnostic_update_in_insert = false,
      flags = {allow_incremental_sync = true, debounce_text_changes = 1000},
      tsserver = {
          -- filetypes = {"typescript", "typescriptreact", "javascript", "javascriptreact"},
@@ -101,13 +114,12 @@ require'navigator'.setup({
                  -- eslint_args = {"-f", "json", "--stdin", "--stdin-filename", "$FILENAME"},
                  eslint_enable_disable_comments = true,
                  -- eslint diagnostics
-                 eslint_enable_diagnostics = true,
+                 eslint_enable_diagnostics = false,
                  eslint_diagnostics_debounce = 250,
                  -- formatting
                  enable_formatting = true,
                  formatter = "prettierd",
                  formatter_args = {"--stdin-filepath", "$FILENAME"},
-                 format_on_save = true,
                  no_save_after_format = false,
                  -- parentheses completion
                  complete_parens = false,
@@ -129,12 +141,27 @@ require'navigator'.setup({
  }
 )
 
+vim.lsp.handlers["textDocument/publishDiagnostics"] =
+    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+        -- Disable underline, it's very annoying
+        underline = false,
+        virtual_text = false,
+        -- Enable virtual text, override spacing to 4
+        -- virtual_text = {spacing = 4},
+        -- Use a function to dynamically turn signs off
+        -- and on, using buffer local variables
+        signs = true,
+        update_in_insert = false
+    })
+
+
 vim.o.termguicolors = true
 vim.opt.nu = true
 vim.opt.rnu = true
 vim.opt.wrap = false
 vim.opt.expandtab = true
 vim.opt.hidden = true
+vim.o.updatetime = 250
 
 vim.cmd [[
 set autoindent
@@ -151,7 +178,7 @@ set nohlsearch
 require('keys')
 require('telescope-config')
 require('linters-config')
-require('treesitter-conf')
+-- require('treesitter-conf')
 require('cmp-config')
 require'nvim-web-devicons'.setup()
 vim.cmd('source ~/.config/nvim/vim/vimkeys.vim')
@@ -160,6 +187,7 @@ vim.cmd [[
 
   let g:ultest_use_pty = 1
   let test#javascript#reactscripts#options = "--watchAll=false"
+  colorscheme sonokai
 
 ]]
 
