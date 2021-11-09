@@ -79,14 +79,13 @@ require('packer').startup(function()
 
   use 'andys8/vscode-jest-snippets'
 
-  use {'neoclide/coc.nvim', branch='release'}
+--  use {'neoclide/coc.nvim', branch='release'}
 
 
 end)
 
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-
 
 vim.o.termguicolors = true
 vim.opt.nu = true
@@ -112,7 +111,9 @@ require('keys')
 require('telescope-config')
 -- require('linters-config')
 require('treesitter-conf')
--- require('cmp-config')
+-- require('navigator-config')
+require('lsp-config')
+require('cmp-config')
 require'nvim-web-devicons'.setup()
 vim.cmd('source ~/.config/nvim/vim/vimkeys.vim')
 
@@ -123,6 +124,9 @@ vim.cmd [[
   colorscheme sonokai
 
 ]]
+
+
+vim.cmd('source ~/.config/nvim/keys.vim')
 
 -- use omnifunc
 -- vim.api.nvim_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')

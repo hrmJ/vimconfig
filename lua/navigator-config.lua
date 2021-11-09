@@ -4,9 +4,10 @@ require'navigator'.setup({
       diagnostic_err = "",
       diagnostic_warn = " ", diagnostic_hint = " "
    },
+   lsp_installer = true,
    lsp = {
      code_action = {enable = true, sign = false, sign_priority = 40, virtual_text = false},
-     format_on_save = true,
+     format_on_save = false,
      diagnostic_virtual_text = false,
      diagnostic_underline = false,
      diagnostic_update_in_insert = false,
@@ -33,6 +34,7 @@ require'navigator'.setup({
                  enable_formatting = true,
                  formatter = "prettierd",
                  formatter_args = {"--stdin-filepath", "$FILENAME"},
+                 format_on_save = true,
                  no_save_after_format = false,
                  -- parentheses completion
                  complete_parens = false,

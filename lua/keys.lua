@@ -10,7 +10,10 @@ vim.g.mapleader = ','
 key('n', '<leader>t', ':SymbolsOutline<CR>', basicOpts)
 key('n', '<leader>c', ':Telescope  git_commits<CR>', { noremap = true, silent = true })
 key('n', '<leader>s', ':Telescope  git_status<CR>', { noremap = true, silent = true })
+
 key('n', '<leader>a', ':Telescope lsp_code_actions theme=cursor<CR>', { noremap = true, silent = true })
+--key('n', '<leader>ac',  '<Plug>(coc-codeaction)', {noremap = true, silent = true})
+
 key('n', '<leader>rr', ':Telescope lsp_references<CR>', { noremap = true, silent = true })
 key('n', '<leader>dd', ':Telescope lsp_implementations theme=cursor<CR>', { noremap = true, silent = true })
 key('n', '<leader>tl', ':Telescope<CR>', { noremap = true, silent = true })

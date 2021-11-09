@@ -20,7 +20,6 @@ vnoremap <silent> # :<C-U>
   \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gVzv:call setreg('"', old_reg, old_regtype)<CR>
 
+" this pull request https://github.com/junegunn/fzf.vim/pull/1098 was never
+" approved, so these changes to fzf/vim.vim must be added manually
 
-"nnoremap <silent> K :call <SID>show_documentation()<CR>
-"set keywordprg=:call\ <SID>show_documentation()
-autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
