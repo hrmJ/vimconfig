@@ -30,6 +30,7 @@ require('packer').startup(function()
   use 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
   use {'tomasiser/vim-code-dark'}
+  use {'EdenEast/nightfox.nvim'}
   use {'sainnhe/sonokai'}
 
   use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
