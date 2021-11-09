@@ -175,6 +175,7 @@ set nohlsearch
 
 
 
+require('hop').setup()
 require('keys')
 require('telescope-config')
 require('linters-config')
