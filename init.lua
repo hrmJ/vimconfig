@@ -51,6 +51,8 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
 
+  use 'junegunn/vim-easy-align'
+
 
   use { "rcarriga/vim-ultest", requires = {"vim-test/vim-test"}, run = ":UpdateRemotePlugins" }
 
@@ -79,6 +81,7 @@ require('packer').startup(function()
 
 
   use 'andys8/vscode-jest-snippets'
+  use {"ellisonleao/glow.nvim"}
 
 --  use {'neoclide/coc.nvim', branch='release'}
 
@@ -123,6 +126,7 @@ vim.cmd [[
   let g:ultest_use_pty = 1
   let test#javascript#reactscripts#options = "--watchAll=false"
   colorscheme sonokai
+  let g:markdown_folding = 1
 
 ]]
 
