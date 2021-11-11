@@ -84,6 +84,8 @@ require('packer').startup(function()
   use {"ellisonleao/glow.nvim"}
 
 --  use {'neoclide/coc.nvim', branch='release'}
+--
+  use 'vim-voom/VOoM'
 
 
 end)
