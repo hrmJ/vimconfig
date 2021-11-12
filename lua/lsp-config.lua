@@ -68,6 +68,18 @@ if server_available then
     end
 end
 
+local server_available, requested_server = lsp_installer_servers.get_server("jsonls")
+if server_available then
+    requested_server:on_ready(function ()
+        local opts = {}
+        requested_server:setup(tsopts)
+    end)
+    if not requested_server:is_installed() then
+        -- Queue the server to be installed
+        requested_server:install()
+    end
+end
+
 
 
 require("null-ls").config({})
