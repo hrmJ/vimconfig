@@ -53,6 +53,7 @@ require('packer').startup(function()
 
   use 'junegunn/vim-easy-align'
 
+  use {'iamcco/markdown-preview.nvim', ft =  {'markdown', 'vim-plug'}, run = function() vim.fn['mkdp#util#install']() end }
 
   use { "rcarriga/vim-ultest", requires = {"vim-test/vim-test"}, run = ":UpdateRemotePlugins" }
 
