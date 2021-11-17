@@ -35,12 +35,14 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
+  use 'windwp/nvim-autopairs'
 
   use 'andys8/vscode-jest-snippets'
 
   use 'ggandor/lightspeed.nvim'
   use 'tpope/vim-repeat'
 
+  use 'windwp/nvim-ts-autotag'
 
  if packer_bootstrap then
     require('packer').sync()

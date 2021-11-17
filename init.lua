@@ -32,3 +32,5 @@ vim.cmd [[
 
 
 vim.cmd('source ~/.config/nvim/keys.vim')
+
+require('nvim-autopairs').setup{}
