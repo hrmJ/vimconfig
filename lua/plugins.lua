@@ -42,6 +42,11 @@ return require('packer').startup(function(use)
   use 'ggandor/lightspeed.nvim'
   use 'tpope/vim-repeat'
 
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
   use 'windwp/nvim-ts-autotag'
 
  if packer_bootstrap then
