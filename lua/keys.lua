@@ -19,6 +19,8 @@ key('n', '<leader>b', ':Buffers<CR>', { noremap = true, silent = true })
 key('n', '<C-l>', ":BLines<CR>", { noremap = true, silent = true })
 key('n', '<C-l><C-l>', ":Lines<CR>", { noremap = true, silent = true })
 
+key('i', ',,', '<c-o>a', { noremap = true, silent = true })
+
 -- key('n', '<C-l>', ":lua require('telescope.builtin').current_buffer_fuzzy_find({previewer=false, sorting_strategy = 'ascending'})<CR>", { noremap = true, silent = true })
 
 
@@ -41,5 +43,5 @@ key('n', '<C-l><C-l>', ":Lines<CR>", { noremap = true, silent = true })
 -- key('n', '<C-c>', ':bd<CR>', { noremap = true, silent = true })
 -- key('v', '<leader>s', ':Telescope grep_string<CR>', { noremap = true, silent = true })
 -- key('v', '<leader>w', ":lua require('telescope.builtin').grep_string({disable_coordinates=true, word_match = '-w'})<CR>", { noremap = true, silent = true })
--- vim.cmd[[nnoremap <silent> <Leader>e <Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>]]
+ vim.cmd[[nnoremap <silent> <Leader>e <Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>]]
 
