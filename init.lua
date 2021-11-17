@@ -1,5 +1,6 @@
 require('plugins')
 require('lsp.setup')
+require('keys')
 
 vim.o.termguicolors = true
 vim.opt.nu = true
