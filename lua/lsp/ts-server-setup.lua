@@ -12,7 +12,7 @@ lspconfig.tsserver.setup({
             eslint_enable_diagnostics = true,
             eslint_enable_code_actions = true,
             enable_formatting = true,
-            formatter = "prettier",
+            formatter = "prettierd",
         })
         ts_utils.setup_client(client)
 	local utils = require('utils')
@@ -28,4 +28,4 @@ lspconfig.tsserver.setup({
 
 -- INSTALLS needed outside neovim
 --
--- npm install -g typescript typescript-language-server diagnostic-languageserver eslint_d
+-- npm install -g typescript typescript-language-server diagnostic-languageserver eslint_d @fsouza/prettierd

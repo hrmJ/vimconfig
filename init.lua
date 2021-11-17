@@ -1,6 +1,8 @@
 require('plugins')
 require('lsp.setup')
 require('keys')
+require('tree-sitter-setup')
+
 
 vim.o.termguicolors = true
 vim.opt.nu = true
