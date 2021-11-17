@@ -38,6 +38,9 @@ return require('packer').startup(function(use)
 
   use 'andys8/vscode-jest-snippets'
 
+  use 'ggandor/lightspeed.nvim'
+  use 'tpope/vim-repeat'
+
 
  if packer_bootstrap then
     require('packer').sync()
