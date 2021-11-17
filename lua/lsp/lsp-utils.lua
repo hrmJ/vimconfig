@@ -1,6 +1,8 @@
 local utils = require('utils')
 
 local on_attach = function(client, bufnr)
+    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
     vim.cmd("command! LspDef lua vim.lsp.buf.definition()")
     vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting()")
     vim.cmd("command! LspCodeAction lua vim.lsp.buf.code_action()")
@@ -13,6 +15,8 @@ local on_attach = function(client, bufnr)
     vim.cmd("command! LspDiagNext lua vim.lsp.diagnostic.goto_next()")
     vim.cmd("command! LspDiagLine lua vim.lsp.diagnostic.show_line_diagnostics()")
     vim.cmd("command! LspSignatureHelp lua vim.lsp.buf.signature_help()")
+    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
     utils.buf_map(bufnr, "n", "gd", ":LspDef<CR>")
     utils.buf_map(bufnr, "n", "gr", ":LspRename<CR>")
     utils.buf_map(bufnr, "n", "gy", ":LspTypeDef<CR>")
