@@ -2,6 +2,7 @@ require('plugins')
 require('lsp.setup')
 require('keys')
 require('tree-sitter-setup')
+require('cmp-config')
 
 
 vim.o.termguicolors = true
