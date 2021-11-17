@@ -7,7 +7,11 @@ end
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  if packer_bootstrap then
+  use "neovim/nvim-lspconfig"
+  use "jose-elias-alvarez/null-ls.nvim"
+  use "jose-elias-alvarez/nvim-lsp-ts-utils"
+
+ if packer_bootstrap then
     require('packer').sync()
   end
 end)
