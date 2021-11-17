@@ -1,2 +1,2 @@
 require('plugins')
-require('my-lsp-setup')
+require('lsp.setup')
