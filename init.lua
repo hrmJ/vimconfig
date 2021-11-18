@@ -33,6 +33,7 @@ vim.cmd [[
 
 vim.cmd('source ~/.config/nvim/keys.vim')
 
+require('telescope').load_extension('fzf')
 require('nvim-autopairs').setup{}
 require'nvim-web-devicons'.setup{}
 require'nvim-tree'.setup {

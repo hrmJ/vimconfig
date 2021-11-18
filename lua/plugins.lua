@@ -21,6 +21,7 @@ return require('packer').startup(function(use)
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
   use {'junegunn/fzf.vim'}
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   use {'tomasiser/vim-code-dark'}
   use {'EdenEast/nightfox.nvim'}
