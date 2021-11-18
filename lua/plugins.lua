@@ -30,6 +30,7 @@ return require('packer').startup(function(use)
   use {'tomasiser/vim-code-dark'}
   use {'EdenEast/nightfox.nvim'}
   use {'sainnhe/sonokai'}
+  use 'marko-cerovac/material.nvim'
   use 'folke/lsp-colors.nvim'
 
 

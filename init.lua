@@ -25,7 +25,7 @@ vim.cmd [[
 
   let g:ultest_use_pty = 1
   let test#javascript#reactscripts#options = "--watchAll=false"
-  colorscheme sonokai
+  colorscheme material
   let g:markdown_folding = 0
 
 ]]
