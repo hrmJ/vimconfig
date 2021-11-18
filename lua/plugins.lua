@@ -55,6 +55,12 @@ return require('packer').startup(function(use)
     end
   }
 
+  use {
+    'tanvirtin/vgit.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    }
+  }
 
   use {
       'kyazdani42/nvim-tree.lua',

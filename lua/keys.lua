@@ -17,6 +17,7 @@ key('n', '<leader>f', ':Telescope git_files<CR>', { noremap = true, silent = tru
 -- key('n', '<leader>f', ':GFiles<CR>', { noremap = true, silent = true })
 
 key('n', '<leader>g', ':Rg', { noremap = true, silent = true })
+key('n', '<leader>G', ':Rg<CR>', { noremap = true, silent = true })
 
 --key('n', '<leader>b', ':Buffers<CR>', { noremap = true, silent = true })
 key('n', '<leader>b', ':Telescope buffers<CR>', { noremap = true, silent = true })
