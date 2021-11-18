@@ -17,6 +17,8 @@ return require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use 'Raimondi/delimitMate'
   use 'tpope/vim-eunuch'
+  use 'Olical/vim-enmasse'
+
 
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
