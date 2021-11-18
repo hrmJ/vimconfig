@@ -59,3 +59,12 @@ require('vgit').setup({
         ['n <leader>gx'] = 'toggle_diff_preference',
     }
 })
+
+
+vim.diagnostic.config({
+  virtual_text = false,
+  float = {
+    source = 'always',
+    border = border
+  },
+})
