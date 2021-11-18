@@ -19,6 +19,8 @@ return require('packer').startup(function(use)
   use 'tpope/vim-eunuch'
   use 'Olical/vim-enmasse'
 
+  use 'SidOfc/mkdx'
+
 
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
@@ -78,6 +80,8 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
+
+  use 'crispgm/telescope-heading.nvim'
 
   use 'windwp/nvim-ts-autotag'
 

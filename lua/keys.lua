@@ -3,6 +3,11 @@ local key = vim.api.nvim_set_keymap
 local basicOpts = { noremap = true, silent = true }
 
 vim.g.mapleader = ','
+vim.cmd [[
+
+  autocmd FileType markdown nnoremap <silent> <leader>tlh :Telescope heading<CR>
+
+]]
 
 
 key('n', '-', ':Explore<CR>', { noremap = true, silent = true })
