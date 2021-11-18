@@ -34,3 +34,9 @@ vim.cmd [[
 vim.cmd('source ~/.config/nvim/keys.vim')
 
 require('nvim-autopairs').setup{}
+require'nvim-web-devicons'.setup{}
+require'nvim-tree'.setup {
+  disable_netrw       = false,
+  hijack_netrw        = false
+}
+require('gitsigns').setup {}

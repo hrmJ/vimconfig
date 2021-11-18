@@ -11,8 +11,11 @@ key('n', '<leader>tl', ':Telescope<CR>', { noremap = true, silent = true })
 --
 key('n', '<leader>o', ':Telescope treesitter<CR>', { noremap = true, silent = true })
 
-key('n', '<c-p>', ':Files<CR>', { noremap = true, silent = true })
-key('n', '<leader>f', ':GFiles<CR>', { noremap = true, silent = true })
+--key('n', '<c-p>', ':Files<CR>', { noremap = true, silent = true })
+
+key('n', '<leader>f', ':Telescope git_files<CR>', { noremap = true, silent = true })
+-- key('n', '<leader>f', ':GFiles<CR>', { noremap = true, silent = true })
+
 key('n', '<leader>g', ':Rg', { noremap = true, silent = true })
 key('n', '<leader>b', ':Buffers<CR>', { noremap = true, silent = true })
 key('n', '<C-l>', ":BLines<CR>", { noremap = true, silent = true })
