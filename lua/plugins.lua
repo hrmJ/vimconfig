@@ -19,7 +19,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-eunuch'
   use 'Olical/vim-enmasse'
 
-  use 'SidOfc/mkdx'
+  --use 'SidOfc/mkdx'
 
 
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}

@@ -15,12 +15,14 @@ key('n', '-', ':Explore<CR>', { noremap = true, silent = true })
 key('n', '<leader>ca', ':Telescope lsp_code_actions theme=cursor<CR>', { noremap = true, silent = true })
 key('n', '<leader>rr', ':Telescope lsp_references<CR>', { noremap = true, silent = true })
 key('n', '<leader>tl', ':Telescope<CR>', { noremap = true, silent = true })
+key('n', '<C-c>', ':bd<CR>', { noremap = true, silent = true })
+
 --key('n', '<leader>dd', ':Telescope lsp_implementations theme=cursor<CR>', { noremap = true, silent = true })
 --
 key('n', '<leader>o', ':Telescope treesitter<CR>', { noremap = true, silent = true })
 
 
---key('n', '<c-p>', ':Files<CR>', { noremap = true, silent = true })
+key('n', '<c-p>', ':Telescope find_files<CR>', { noremap = true, silent = true })
 
 key('n', '<leader>f', ':Telescope git_files<CR>', { noremap = true, silent = true })
 -- key('n', '<leader>f', ':GFiles<CR>', { noremap = true, silent = true })
