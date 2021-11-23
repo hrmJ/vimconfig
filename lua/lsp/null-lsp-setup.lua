@@ -4,6 +4,7 @@ local lspUtils = require('lsp.lsp-utils')
 require("null-ls").config({
     sources = {
         require("null-ls").builtins.formatting.prettierd,
+        require("null-ls").builtins.formatting.stylua,
         require("null-ls").builtins.completion.spell,
     },
 })

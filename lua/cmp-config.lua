@@ -1,6 +1,6 @@
-vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 -- Don't show the dumb matching stuff.
-vim.opt.shortmess:append "c"
+vim.opt.shortmess:append 'c'
 -- Complextras.nvim configuration
 -- vim.api.nvim_set_keymap(
 --   "i",
@@ -9,16 +9,14 @@ vim.opt.shortmess:append "c"
 --   { noremap = true }
 -- )
 
-
 -- local lspkind = require "lspkind"
 -- lspkind.init()
-
 
 local cmp = require 'cmp'
 cmp.setup {
   snippet = {
     expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+      vim.fn['vsnip#anonymous'](args.body) -- For `vsnip` users.
       -- luasnip.lsp_expand(args.body)
     end,
   },
@@ -32,15 +30,14 @@ cmp.setup {
     ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
-    }
+    },
   },
   sources = {
     { name = 'nvim_lsp' },
     { name = 'vsnip' },
-    { name = "path" },
+    { name = 'path' },
     -- { name = 'buffer' },
   },
-
 
   experimental = {
     -- I like the new menu better! Nice work hrsh7th
@@ -49,29 +46,26 @@ cmp.setup {
     -- Let's play with this for a day or two
     ghost_text = true,
   },
-
-
 }
 
 -- Use buffer source for `/`.
 cmp.setup.cmdline('/', {
   sources = {
-    { name = 'buffer' }
-  }
+    { name = 'buffer' },
+  },
 })
-
 
 -- Use cmdline & path source for ':'.
 cmp.setup.cmdline(':', {
   sources = cmp.config.sources({
-    { name = 'path' }
+    { name = 'path' },
   }, {
-    { name = 'cmdline' }
-  })
+    { name = 'cmdline' },
+  }),
 })
 
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
+local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
+cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done { map_char = { tex = '' } })
 
 -- add a lisp filetype (wrap my-function), FYI: Hardcoded = { "clojure", "clojurescript", "fennel", "janet" }
-cmp_autopairs.lisp[#cmp_autopairs.lisp+1] = "racket"
+cmp_autopairs.lisp[#cmp_autopairs.lisp + 1] = 'racket'

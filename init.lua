@@ -1,9 +1,8 @@
-require('plugins')
-require('lsp.setup')
-require('keys')
-require('tree-sitter-setup')
-require('cmp-config')
-
+require 'plugins'
+require 'lsp.setup'
+require 'keys'
+require 'tree-sitter-setup'
+require 'cmp-config'
 
 vim.o.termguicolors = true
 vim.opt.nu = true
@@ -30,43 +29,40 @@ vim.cmd [[
 
 ]]
 
+vim.cmd 'source ~/.config/nvim/keys.vim'
 
-vim.cmd('source ~/.config/nvim/keys.vim')
-
-require('telescope').load_extension('fzf')
-require('telescope').load_extension('heading')
-require('nvim-autopairs').setup{}
-require'nvim-web-devicons'.setup{}
-require'nvim-tree'.setup {
-  disable_netrw       = false,
-  hijack_netrw        = false
+require('telescope').load_extension 'fzf'
+require('telescope').load_extension 'heading'
+require('nvim-autopairs').setup {}
+require('nvim-web-devicons').setup {}
+require('nvim-tree').setup {
+  disable_netrw = false,
+  hijack_netrw = false,
 }
 -- require('gitsigns').setup {}
-require('vgit').setup({
-    keymaps = {
-        ['n <C-k>'] = 'hunk_up',
-        ['n <C-j>'] = 'hunk_down',
-        ['n <leader>ga'] = 'actions',
-        ['n <leader>gs'] = 'buffer_hunk_stage',
-        ['n <leader>gr'] = 'buffer_hunk_reset',
-        ['n <leader>gp'] = 'buffer_hunk_preview',
-        ['n <leader>gb'] = 'buffer_blame_preview',
-        ['n <leader>gf'] = 'buffer_diff_preview',
-        ['n <leader>gh'] = 'buffer_history_preview',
-        ['n <leader>gu'] = 'buffer_reset',
-        ['n <leader>gg'] = 'buffer_gutter_blame_preview',
-        ['n <leader>gd'] = 'project_diff_preview',
-        ['n <leader>gq'] = 'project',
-        ['n <leader>gx'] = 'toggle_diff_preference',
-    }
-})
+require('vgit').setup {
+  keymaps = {
+    ['n <C-k>'] = 'hunk_up',
+    ['n <C-j>'] = 'hunk_down',
+    ['n <leader>ga'] = 'actions',
+    ['n <leader>gs'] = 'buffer_hunk_stage',
+    ['n <leader>gr'] = 'buffer_hunk_reset',
+    ['n <leader>gp'] = 'buffer_hunk_preview',
+    ['n <leader>gb'] = 'buffer_blame_preview',
+    ['n <leader>gf'] = 'buffer_diff_preview',
+    ['n <leader>gh'] = 'buffer_history_preview',
+    ['n <leader>gu'] = 'buffer_reset',
+    ['n <leader>gg'] = 'buffer_gutter_blame_preview',
+    ['n <leader>gd'] = 'project_diff_preview',
+    ['n <leader>gq'] = 'project',
+    ['n <leader>gx'] = 'toggle_diff_preference',
+  },
+}
 
-
-
-vim.diagnostic.config({
+vim.diagnostic.config {
   virtual_text = false,
   float = {
     source = 'always',
-    border = border
+    border = border,
   },
-})
+}
