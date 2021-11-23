@@ -1,9 +1,7 @@
 local lspconfig = require 'lspconfig'
 local lspUtils = require 'lsp.lsp-utils'
 
---Enable completion
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 lspconfig.cssls.setup {
   on_attach = lspUtils.on_attach,
