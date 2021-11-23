@@ -62,7 +62,6 @@ require('vgit').setup({
 })
 
 
-require('hologram').setup()
 
 vim.diagnostic.config({
   virtual_text = false,
