@@ -44,6 +44,7 @@ return require('packer').startup(function(use)
   use 'hrsh7th/vim-vsnip'
   use 'windwp/nvim-autopairs'
   use 'kyazdani42/nvim-web-devicons'
+  use { 'rcarriga/vim-ultest', requires = { 'vim-test/vim-test' }, run = ':UpdateRemotePlugins' }
 
   use 'andys8/vscode-jest-snippets'
 
