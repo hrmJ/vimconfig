@@ -12,6 +12,8 @@ return require('packer').startup(function(use)
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
+  use { 'akinsho/toggleterm.nvim' }
+
   use 'tpope/vim-fugitive'
   use 'tpope/vim-commentary'
   use 'tpope/vim-surround'
@@ -51,16 +53,6 @@ return require('packer').startup(function(use)
 
   use {
     'lewis6991/gitsigns.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim',
-    },
-    config = function()
-      require('gitsigns').setup()
-    end,
-  }
-
-  use {
-    'tanvirtin/vgit.nvim',
     requires = {
       'nvim-lua/plenary.nvim',
     },
