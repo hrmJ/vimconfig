@@ -8,6 +8,9 @@ vim.cmd [[
 
 ]]
 
+key('n', '<leader><c-t>', ":lua require('toggleterm.terminal').Terminal:new():toggle()<CR>", { noremap = true, silent = true })
+key('n', '<leader>tt', ':Telescope termfinder<CR>', { noremap = true, silent = true })
+
 key('n', '-', ':Explore<CR>', { noremap = true, silent = true })
 
 key('n', '<c-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })

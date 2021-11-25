@@ -76,6 +76,7 @@ return require('packer').startup(function(use)
   }
 
   use 'crispgm/telescope-heading.nvim'
+  use { 'tknightz/telescope-termfinder.nvim' }
 
   use 'windwp/nvim-ts-autotag'
 
