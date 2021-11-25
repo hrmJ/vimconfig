@@ -85,3 +85,5 @@ require('toggleterm').setup {
   persist_size = true,
   direction = 'float',
 }
+
+require('lsp_signature').setup()
