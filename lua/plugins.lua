@@ -11,6 +11,7 @@ return require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig'
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'jose-elias-alvarez/nvim-lsp-ts-utils'
+  use 'tpope/vim-vinegar'
 
   use { 'akinsho/toggleterm.nvim' }
 
@@ -20,6 +21,8 @@ return require('packer').startup(function(use)
   use 'Raimondi/delimitMate'
   use 'tpope/vim-eunuch'
   use 'Olical/vim-enmasse'
+  use 'idanarye/vim-merginal'
+  use 'preservim/nerdtree'
 
   --use 'SidOfc/mkdx'
 
@@ -62,16 +65,10 @@ return require('packer').startup(function(use)
     },
   }
 
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons',
-    config = function()
-      require('nvim-tree').setup {
-        disable_netrw = false,
-        hijack_netrw = false,
-      }
-    end,
-  }
+  -- use {
+  --   'kyazdani42/nvim-tree.lua',
+  --   requires = 'kyazdani42/nvim-web-devicons',
+  -- }
 
   use {
     'nvim-telescope/telescope.nvim',

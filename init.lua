@@ -36,10 +36,10 @@ require('telescope').load_extension 'heading'
 require('telescope').load_extension 'termfinder'
 require('nvim-autopairs').setup {}
 require('nvim-web-devicons').setup {}
-require('nvim-tree').setup {
-  disable_netrw = false,
-  hijack_netrw = false,
-}
+--require('nvim-tree').setup {
+--  disable_netrw = false,
+--  hijack_netrw = false,
+--}
 
 require('gitsigns').setup {
   keymaps = {
@@ -87,3 +87,11 @@ require('toggleterm').setup {
 }
 
 require('lsp_signature').setup()
+
+vim.cmd [[
+
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeMinimalUI = 1
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+]]
