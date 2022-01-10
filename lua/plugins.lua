@@ -8,8 +8,16 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use 'nvim-lua/plenary.nvim'
-  use 'neovim/nvim-lspconfig'
-  use 'jose-elias-alvarez/null-ls.nvim'
+  use {'neovim/nvim-lspconfig'}
+
+  use({
+      "jose-elias-alvarez/null-ls.nvim",
+      config = function()
+          require("null-ls").setup()
+      end,
+      requires = { "nvim-lua/plenary.nvim" },
+  })
+
   use 'jose-elias-alvarez/nvim-lsp-ts-utils'
   use 'tpope/vim-vinegar'
 
@@ -36,6 +44,7 @@ return require('packer').startup(function(use)
   use { 'sainnhe/sonokai' }
   use 'marko-cerovac/material.nvim'
   use 'folke/lsp-colors.nvim'
+  use 'chrisbra/Colorizer'
 
   use 'saadparwaiz1/cmp_luasnip'
   use 'hrsh7th/nvim-cmp'

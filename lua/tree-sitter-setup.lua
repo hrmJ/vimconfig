@@ -49,12 +49,3 @@ vim.cmd [[
   set foldexpr=nvim_treesitter#foldexpr()
 ]]
 
-local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
-parser_config.markdown = {
-  install_info = {
-    url = '~/projects/tree-sitter-markdown', -- local path or git repo
-    files = { 'src/parser.c' },
-  },
-  filetype = 'markdown', -- if filetype does not agrees with parser name
-  --used_by = {"bar", "baz"} -- additional filetypes that use this parser
-}
