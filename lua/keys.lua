@@ -31,18 +31,13 @@ key('n', '<c-p>', ':Telescope find_files<CR>', { noremap = true, silent = true }
 key('n', '<leader>f', ':Telescope git_files<CR>', { noremap = true, silent = true })
 -- key('n', '<leader>f', ':GFiles<CR>', { noremap = true, silent = true })
 
-key('n', '<leader>g', ':Rg', { noremap = true, silent = true })
-key('n', '<leader>G', ':Rg<CR>', { noremap = true, silent = true })
+key('n', '<leader>G', ':Telescope live_grep<CR>', { noremap = true, silent = true })
+key('n', '<leader><C-G>', ':Rg<CR>', { noremap = true, silent = true })
 
 --key('n', '<leader>b', ':Buffers<CR>', { noremap = true, silent = true })
 key('n', '<leader>b', ':Telescope buffers<CR>', { noremap = true, silent = true })
 
-key(
-  'n',
-  '<leader>l',
-  ":lua require('telescope.builtin').current_buffer_fuzzy_find({previewer=false, sorting_strategy = 'ascending'})<CR>",
-  { noremap = true, silent = true }
-)
+key('n', '<leader>l', ":lua require('telescope.builtin').current_buffer_fuzzy_find({sorting_strategy = 'ascending'})<CR>", { noremap = true, silent = true })
 --key('n', '<C-l>', ":BLines<CR>", { noremap = true, silent = true })
 key('n', '<C-l>', ':Lines<CR>', { noremap = true, silent = true })
 
