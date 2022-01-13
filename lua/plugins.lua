@@ -8,15 +8,15 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use 'nvim-lua/plenary.nvim'
-  use {'neovim/nvim-lspconfig'}
+  use { 'neovim/nvim-lspconfig' }
 
-  use({
-      "jose-elias-alvarez/null-ls.nvim",
-      config = function()
-          require("null-ls").setup()
-      end,
-      requires = { "nvim-lua/plenary.nvim" },
-  })
+  use {
+    'jose-elias-alvarez/null-ls.nvim',
+    config = function()
+      require('null-ls').setup()
+    end,
+    requires = { 'nvim-lua/plenary.nvim' },
+  }
 
   use 'jose-elias-alvarez/nvim-lsp-ts-utils'
   use 'tpope/vim-vinegar'
@@ -72,6 +72,18 @@ return require('packer').startup(function(use)
     requires = {
       'nvim-lua/plenary.nvim',
     },
+  }
+
+  use {
+    'folke/trouble.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function()
+      require('trouble').setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end,
   }
 
   -- use {
