@@ -74,17 +74,19 @@ return require('packer').startup(function(use)
     },
   }
 
-  use {
-    'folke/trouble.nvim',
-    requires = 'kyazdani42/nvim-web-devicons',
-    config = function()
-      require('trouble').setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      }
-    end,
-  }
+  use { 'nvim-treesitter/nvim-tree-docs', requires = { 'nvim-treesitter/nvim-treesitter' } }
+
+  -- use {
+  --   'folke/trouble.nvim',
+  --   requires = 'kyazdani42/nvim-web-devicons',
+  --   config = function()
+  --     require('trouble').setup {
+  --       -- your configuration comes here
+  --       -- or leave it empty to use the default settings
+  --       -- refer to the configuration section below
+  --     }
+  --   end,
+  -- }
 
   -- use {
   --   'kyazdani42/nvim-tree.lua',

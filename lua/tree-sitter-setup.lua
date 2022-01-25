@@ -1,4 +1,11 @@
 require('nvim-treesitter.configs').setup {
+  tree_docs = {
+    enable = true,
+    keymaps = {
+      doc_node_at_cursor = 'gjd',
+      doc_all_in_range = 'gjd',
+    },
+  },
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
@@ -48,4 +55,3 @@ vim.cmd [[
   set foldmethod=expr
   set foldexpr=nvim_treesitter#foldexpr()
 ]]
-
