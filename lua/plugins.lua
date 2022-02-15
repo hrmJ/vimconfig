@@ -45,6 +45,14 @@ return require('packer').startup(function(use)
   use 'marko-cerovac/material.nvim'
   use 'folke/lsp-colors.nvim'
   use 'chrisbra/Colorizer'
+  use 'rebelot/kanagawa.nvim'
+  use {
+    'mcchrish/zenbones.nvim',
+    -- Optionally install Lush. Allows for more configuration or extending the colorscheme
+    -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+    -- In Vim, compat mode is turned on as Lush only works in Neovim.
+    requires = 'rktjmp/lush.nvim',
+  }
 
   use 'saadparwaiz1/cmp_luasnip'
   use 'hrsh7th/nvim-cmp'
@@ -102,6 +110,14 @@ return require('packer').startup(function(use)
   use { 'tknightz/telescope-termfinder.nvim' }
 
   use 'windwp/nvim-ts-autotag'
+
+  use {
+    'anuvyklack/pretty-fold.nvim',
+    config = function()
+      require('pretty-fold').setup {}
+      require('pretty-fold.preview').setup()
+    end,
+  }
 
   if packer_bootstrap then
     require('packer').sync()
