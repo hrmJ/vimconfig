@@ -28,6 +28,7 @@ key('n', '<leader>o', ':Telescope treesitter<CR>', { noremap = true, silent = tr
 
 key('n', '<c-p>', ':Telescope find_files<CR>', { noremap = true, silent = true })
 
+key('n', '<leader>r', ':Telescope git_branches<CR>', { noremap = true, silent = true })
 key('n', '<leader>f', ':Telescope git_files<CR>', { noremap = true, silent = true })
 -- key('n', '<leader>f', ':GFiles<CR>', { noremap = true, silent = true })
 
