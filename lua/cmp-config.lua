@@ -36,8 +36,21 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = 'vsnip' },
     { name = 'path' },
-    { name = 'buffer' },
+    { name = 'rg' },
+    -- { name = 'rg', options = {} },
   },
+
+  -- sorting = {
+  --   comparators = {
+  --     cmp.config.compare.kind,
+  --     cmp.config.compare.offset,
+  --     cmp.config.compare.exact,
+  --     cmp.config.compare.score,
+  --     cmp.config.compare.sort_text,
+  --     cmp.config.compare.length,
+  --     cmp.config.compare.order,
+  --   },
+  -- },
 
   experimental = {
     -- I like the new menu better! Nice work hrsh7th
@@ -51,6 +64,7 @@ cmp.setup {
 -- Use buffer source for `/`.
 cmp.setup.cmdline('/', {
   sources = {
+    { name = 'nvim_lsp_document_symbol' },
     { name = 'buffer' },
   },
 })
@@ -61,6 +75,15 @@ cmp.setup.cmdline(':', {
     { name = 'path' },
   }, {
     { name = 'cmdline' },
+  }),
+})
+
+-- Set configuration for specific filetype.
+cmp.setup.filetype('gitcommit', {
+  sources = cmp.config.sources({
+    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+  }, {
+    { name = 'buffer' },
   }),
 })
 

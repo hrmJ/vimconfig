@@ -56,7 +56,6 @@ return require('packer').startup(function(use)
 
   use 'ms-jpq/coq_nvim'
 
-
   use 'saadparwaiz1/cmp_luasnip'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
@@ -65,7 +64,9 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
+  use 'hrsh7th/cmp-nvim-lsp-document-symbol'
   use 'windwp/nvim-autopairs'
+
   use 'kyazdani42/nvim-web-devicons'
   use { 'rcarriga/vim-ultest', requires = { 'vim-test/vim-test' }, run = ':UpdateRemotePlugins' }
   use {
@@ -87,17 +88,21 @@ return require('packer').startup(function(use)
 
   use { 'nvim-treesitter/nvim-tree-docs', requires = { 'nvim-treesitter/nvim-treesitter' } }
 
-  -- use {
-  --   'folke/trouble.nvim',
-  --   requires = 'kyazdani42/nvim-web-devicons',
-  --   config = function()
-  --     require('trouble').setup {
-  --       -- your configuration comes here
-  --       -- or leave it empty to use the default settings
-  --       -- refer to the configuration section below
-  --     }
-  --   end,
-  -- }
+  use {
+    'folke/trouble.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function()
+      require('trouble').setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end,
+  }
+
+  use 'lukas-reineke/cmp-rg'
+
+  use 'petertriho/cmp-git'
 
   -- use {
   --   'kyazdani42/nvim-tree.lua',
