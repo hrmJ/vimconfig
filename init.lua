@@ -24,7 +24,7 @@ vim.cmd [[
 
   let g:ultest_use_pty = 1
   let test#javascript#reactscripts#options = "--watchAll=false"
-  colorscheme rosebones
+  colorscheme kanagawa
   let g:markdown_folding = 0
 
 ]]
@@ -90,6 +90,7 @@ require('lsp_signature').setup()
 
 vim.cmd [[
 
+let g:coq_settings = { 'auto_start': v:true }
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

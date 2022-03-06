@@ -54,6 +54,9 @@ return require('packer').startup(function(use)
     requires = 'rktjmp/lush.nvim',
   }
 
+  use 'ms-jpq/coq_nvim'
+
+
   use 'saadparwaiz1/cmp_luasnip'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
