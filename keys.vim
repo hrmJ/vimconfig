@@ -23,3 +23,4 @@ vnoremap <silent> # :<C-U>
 nnoremap <leader>qt :%!quicktype -l typescript --just-types --top-level MyType<CR>
 
 au FileType markdown vmap <Leader>A :EasyAlign*<Bar><Enter>
+

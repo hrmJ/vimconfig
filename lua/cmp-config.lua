@@ -64,8 +64,7 @@ cmp.setup {
 -- Use buffer source for `/`.
 cmp.setup.cmdline('/', {
   sources = {
-    { name = 'nvim_lsp_document_symbol' },
-    { name = 'buffer' },
+    { name = 'fuzzy_buffer' },
   },
 })
 

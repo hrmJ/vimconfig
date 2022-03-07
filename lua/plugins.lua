@@ -131,17 +131,12 @@ return require('packer').startup(function(use)
 
   use 'nvim-lua/lsp-status.nvim'
   use 'tamton-aquib/staline.nvim'
-  use {
-    'startup-nvim/startup.nvim',
-    requires = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
-    config = function()
-      require('startup').setup()
-    end,
-  }
 
   use 'RRethy/vim-illuminate'
 
   use { 'edluffy/specs.nvim' }
+
+  use { 'tzachar/cmp-fuzzy-buffer', requires = { 'hrsh7th/nvim-cmp', 'tzachar/fuzzy.nvim' } }
 
   if packer_bootstrap then
     require('packer').sync()
