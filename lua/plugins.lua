@@ -30,7 +30,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-eunuch'
   use 'Olical/vim-enmasse'
   use 'idanarye/vim-merginal'
-  use 'preservim/nerdtree'
+  use 'alec-gibson/nvim-tetris'
 
   --use 'SidOfc/mkdx'
 
@@ -109,6 +109,7 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/plenary.nvim' } },
   }
+  use { 'nvim-telescope/telescope-file-browser.nvim' }
 
   use 'crispgm/telescope-heading.nvim'
   use { 'tknightz/telescope-termfinder.nvim' }
@@ -130,6 +131,17 @@ return require('packer').startup(function(use)
 
   use 'nvim-lua/lsp-status.nvim'
   use 'tamton-aquib/staline.nvim'
+  use {
+    'startup-nvim/startup.nvim',
+    requires = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('startup').setup()
+    end,
+  }
+
+  use 'RRethy/vim-illuminate'
+
+  use { 'edluffy/specs.nvim' }
 
   if packer_bootstrap then
     require('packer').sync()

@@ -35,6 +35,8 @@ vim.cmd 'source ~/.config/nvim/keys.vim'
 require('telescope').load_extension 'fzf'
 require('telescope').load_extension 'heading'
 require('telescope').load_extension 'termfinder'
+require('telescope').load_extension 'file_browser'
+
 require('nvim-autopairs').setup {}
 require('nvim-web-devicons').setup {}
 
@@ -88,12 +90,6 @@ require('toggleterm').setup {
   direction = 'float',
 }
 
+require('specs').setup {}
+
 require('lsp_signature').setup()
-
-vim.cmd [[
-
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeMinimalUI = 1
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-]]

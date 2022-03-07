@@ -11,7 +11,8 @@ vim.cmd [[
 key('n', '<leader><c-t>', ":lua require('toggleterm.terminal').Terminal:new():toggle()<CR>", { noremap = true, silent = true })
 key('n', '<leader>tt', ':Telescope termfinder<CR>', { noremap = true, silent = true })
 
--- key('n', '-', ':Explore<CR>', { noremap = true, silent = true })
+key('n', '-', ':Telescope file_browser 	sorting_strategy=ascending path=%:p:h grouped=true <CR><Esc>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<space>fb', ':Telescope file_browser', { noremap = true })
 
 key('n', '<c-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
@@ -32,11 +33,13 @@ key('n', '<leader>r', ':Telescope git_branches<CR>', { noremap = true, silent = 
 key('n', '<leader>f', ':Telescope git_files<CR>', { noremap = true, silent = true })
 -- key('n', '<leader>f', ':GFiles<CR>', { noremap = true, silent = true })
 
-key('n', '<leader>G', ':Telescope live_grep<CR>', { noremap = true, silent = true })
+key('n', '<leader>G', ':Telescope grep_string search="" <CR>', { noremap = true, silent = true })
 key('n', '<leader><C-G>', ':Rg<CR>', { noremap = true, silent = true })
 
 --key('n', '<leader>b', ':Buffers<CR>', { noremap = true, silent = true })
 key('n', '<leader>b', ':Telescope buffers<CR>', { noremap = true, silent = true })
+
+key('n', '<space>', '/', { noremap = true, silent = true })
 
 key('n', '<leader>l', ":lua require('telescope.builtin').current_buffer_fuzzy_find({sorting_strategy = 'ascending'})<CR>", { noremap = true, silent = true })
 --key('n', '<C-l>', ":BLines<CR>", { noremap = true, silent = true })
@@ -63,6 +66,6 @@ key('n', 't<C-o>', ':UltestOutput<CR>', { noremap = true, silent = true })
 -- key('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 -- key('n', '-', ':NvimTreeFindFileToggle<CR>', { noremap = true, silent = true })
 -- key('n', '<C-c>', ':bd<CR>', { noremap = true, silent = true })
--- key('v', '<leader>s', ':Telescope grep_string<CR>', { noremap = true, silent = true })
+key('v', '<leader>s', ':Telescope grep_string<CR>', { noremap = true, silent = true })
 key('v', '<leader>w', ":lua require('telescope.builtin').grep_string({disable_coordinates=true, word_match = '-w'})<CR>", { noremap = true, silent = true })
 vim.cmd [[nnoremap <silent> <Leader>e <Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>]]

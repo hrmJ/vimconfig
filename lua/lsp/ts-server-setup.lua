@@ -23,6 +23,7 @@ lspconfig.tsserver.setup {
     utils.buf_map(bufnr, 'n', 'gi', ':TSLspRenameFile<CR>')
     utils.buf_map(bufnr, 'n', 'go', ':TSLspImportAll<CR>')
     lspUtils.on_attach(client, bufnr)
+    require('illuminate').on_attach(client)
   end,
 }
 
