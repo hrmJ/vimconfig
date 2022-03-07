@@ -3,6 +3,7 @@ require 'lsp.setup'
 require 'keys'
 require 'tree-sitter-setup'
 require 'cmp-config'
+require 'statusline'
 
 vim.o.termguicolors = true
 vim.opt.nu = true
@@ -36,6 +37,7 @@ require('telescope').load_extension 'heading'
 require('telescope').load_extension 'termfinder'
 require('nvim-autopairs').setup {}
 require('nvim-web-devicons').setup {}
+
 --require('nvim-tree').setup {
 --  disable_netrw = false,
 --  hijack_netrw = false,

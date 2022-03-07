@@ -92,11 +92,7 @@ return require('packer').startup(function(use)
     'folke/trouble.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function()
-      require('trouble').setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      }
+      require('trouble').setup {}
     end,
   }
 
@@ -126,6 +122,14 @@ return require('packer').startup(function(use)
       require('pretty-fold.preview').setup()
     end,
   }
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+  }
+
+  use 'nvim-lua/lsp-status.nvim'
+  use 'tamton-aquib/staline.nvim'
 
   if packer_bootstrap then
     require('packer').sync()
