@@ -35,8 +35,8 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'vsnip' },
-    { name = 'path' },
-    { name = 'rg' },
+    -- { name = 'path' },
+    -- { name = 'rg' },
     -- { name = 'rg', options = {} },
   },
 
