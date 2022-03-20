@@ -25,8 +25,9 @@ vim.cmd [[
 
   let g:ultest_use_pty = 1
   let test#javascript#reactscripts#options = "--watchAll=false"
-  colorscheme seoulbones
+  colorscheme kanagawa
   let g:markdown_folding = 0
+  au TermOpen * tnoremap <A-l> <c-\><c-n>
 
 ]]
 
@@ -89,6 +90,7 @@ require('toggleterm').setup {
   persist_size = true,
   direction = 'float',
 }
+
 
 require('specs').setup {}
 
