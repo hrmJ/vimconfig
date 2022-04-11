@@ -138,6 +138,11 @@ return require('packer').startup(function(use)
 
   use { 'tzachar/cmp-fuzzy-buffer', requires = { 'hrsh7th/nvim-cmp', 'tzachar/fuzzy.nvim' } }
 
+  use({
+    "catppuccin/nvim",
+    as = "catppuccin"
+  })
+
   if packer_bootstrap then
     require('packer').sync()
   end

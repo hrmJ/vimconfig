@@ -25,9 +25,11 @@ vim.cmd [[
 
   let g:ultest_use_pty = 1
   let test#javascript#reactscripts#options = "--watchAll=false"
-  colorscheme kanagawa
+  colorscheme nordfox
   let g:markdown_folding = 0
-  au TermOpen * tnoremap <A-l> <c-\><c-n>
+  au TermOpen * tnoremap <A-o> <c-\><c-n>
+  set clipboard=unnamedplus
+
 
 ]]
 
