@@ -143,6 +143,9 @@ return require('packer').startup(function(use)
     as = "catppuccin"
   })
 
+  use 'napmn/react-extract.nvim'
+
+
   if packer_bootstrap then
     require('packer').sync()
   end
