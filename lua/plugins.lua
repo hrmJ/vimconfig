@@ -102,7 +102,7 @@ return require('packer').startup(function(use)
 
   -- use {
   --   'kyazdani42/nvim-tree.lua',
-  --   requires = 'kyazdani42/nvim-web-devicons',
+  --   requires = 'kyazdani41/nvim-web-devicons',
   -- }
 
   use {
@@ -144,6 +144,33 @@ return require('packer').startup(function(use)
   })
 
   use 'napmn/react-extract.nvim'
+
+  use 'iamcco/markdown-preview.nvim'
+
+  use 'tkhren/vim-fake'
+
+  use 'hoschi/yode-nvim'
+
+  use 'ziontee113/syntax-tree-surfer'
+
+  use { "beauwilliams/focus.nvim", config = function() require("focus").setup() end }
+
+  use {
+    "danymat/neogen",
+    config = function()
+        require('neogen').setup {}
+    end,
+    requires = "nvim-treesitter/nvim-treesitter",
+    -- Uncomment next line if you want to follow only stable versions
+    -- tag = "*"
+  }
+
+  use 'ThePrimeagen/harpoon'
+
+  use 'chentoast/marks.nvim'
+
+  use "smjonas/inc-rename.nvim"
+
 
 
   if packer_bootstrap then

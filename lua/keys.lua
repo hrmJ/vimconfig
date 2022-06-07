@@ -24,7 +24,7 @@ key('n', '<leader>tl', ':Telescope<CR>', { noremap = true, silent = true })
 key('n', '<C-c>', ':bd<CR>', { noremap = true, silent = true })
 
 --
-key('n', '<leader>o', ':Telescope treesitter<CR>', { noremap = true, silent = true })
+key('n', '<leader>o', ':Telescope lsp_document_symbols<CR>', { noremap = true, silent = true })
 
 key('n', '<c-p>', ':Telescope find_files<CR>', { noremap = true, silent = true })
 

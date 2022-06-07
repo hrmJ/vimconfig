@@ -6,7 +6,7 @@ local on_attach = function(client, bufnr)
   end
 
   vim.cmd 'command! LspDef lua vim.lsp.buf.definition()'
-  vim.cmd 'command! LspFormatting lua vim.lsp.buf.formatting()'
+  vim.cmd 'command! LspFormatting lua vim.lsp.buf.format()'
   vim.cmd 'command! LspCodeAction lua vim.lsp.buf.code_action()'
   vim.cmd 'command! LspHover lua vim.lsp.buf.hover()'
   vim.cmd 'command! LspRename lua vim.lsp.buf.rename()'
@@ -28,9 +28,24 @@ local on_attach = function(client, bufnr)
   utils.buf_map(bufnr, 'n', 'ga', ':LspCodeAction<CR>')
   utils.buf_map(bufnr, 'n', '<Leader>a', ':LspDiagLine<CR>')
   utils.buf_map(bufnr, 'i', '<C-x><C-x>', '<cmd> LspSignatureHelp<CR>')
-  if client.resolved_capabilities.document_formatting then
+  if client.server_capabilities.document_formatting then
     vim.cmd 'autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()'
   end
+
+
+  if client.supports_method("textDocument/formatting") then
+      vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+      vim.api.nvim_create_autocmd("BufWritePre", {
+          group = augroup,
+          buffer = bufnr,
+          callback = function()
+              -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+              vim.lsp.buf.format({bufnr = bufnr})
+          end,
+      })
+  end
+
+
 end
 
 local M = {

@@ -4,6 +4,7 @@ require 'keys'
 require 'tree-sitter-setup'
 require 'cmp-config'
 require 'statusline'
+require 'syntax-tree-surf'
 
 vim.o.termguicolors = true
 vim.opt.nu = true
@@ -15,6 +16,7 @@ vim.o.updatetime = 250
 
 vim.cmd [[
 
+  "let g:lightspeed_no_default_keymaps = 1
   set autoindent
   set expandtab
   set shiftwidth=2
@@ -31,17 +33,59 @@ vim.cmd [[
   set clipboard=unnamedplus
 
 
+  hi ActiveWindow guibg=#21242b
+  hi InactiveWindow guibg=#282c34
+
+  " Call method on window enter
+  augroup WindowManagement
+    autocmd!
+    autocmd WinEnter * call Handle_Win_Enter()
+  augroup END
+
+  " Change highlight group of active/inactive windows
+  function! Handle_Win_Enter()
+    setlocal winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow
+   endfunction
+
+
 ]]
 
 vim.cmd 'source ~/.config/nvim/keys.vim'
 
 require('telescope').load_extension 'fzf'
-require('telescope').load_extension 'heading'
 require('telescope').load_extension 'termfinder'
+require('telescope').load_extension 'heading'
 require('telescope').load_extension 'file_browser'
+require("telescope").load_extension('harpoon')
 
 require('nvim-autopairs').setup {}
 require('nvim-web-devicons').setup {}
+require'marks'.setup {}
+
+local actions = require "telescope.actions"
+require("telescope").setup {
+  pickers = {
+    buffers = {
+      mappings = {
+        i = {
+          ["<c-d>"] = actions.delete_buffer + actions.move_to_top,
+        }
+      }
+    }
+  },
+  defaults = {
+    mappings = {
+      n = {
+          ["<esc>"] = false,
+          ["<C-c>"] = actions.close,
+      },
+      i = {
+          ["<esc>"] = false,
+      },
+    },
+  }
+}
+
 
 --require('nvim-tree').setup {
 --  disable_netrw = false,
@@ -99,4 +143,10 @@ require('specs').setup {}
 require('lsp_signature').setup()
 
 require("react-extract").setup()
+
+require('yode-nvim').setup({})
+
+require('inc_rename').setup({})
+
+
 vim.keymap.set({ "v" }, "<Leader>re", require("react-extract").extract_to_new_file)
