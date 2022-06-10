@@ -171,7 +171,14 @@ return require('packer').startup(function(use)
 
   use "smjonas/inc-rename.nvim"
 
-
+  use {
+    "rcarriga/neotest",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim"
+    }
+  }
 
   if packer_bootstrap then
     require('packer').sync()

@@ -18,7 +18,8 @@ key('n', '<c-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
 key('n', '<leader>gh', ':0Gclog<CR>', { noremap = true, silent = true })
 
-key('n', '<leader>ca', ':Telescope lsp_code_actions theme=cursor<CR>', { noremap = true, silent = true })
+-- key('n', '<leader>ca', ':Telescope lsp_code_actions theme=cursor<CR>', { noremap = true, silent = true })
+key('n', '<leader>ca', ':LspCodeAction<CR>', { noremap = true, silent = true })
 key('n', '<leader>rr', ':Telescope lsp_references<CR>', { noremap = true, silent = true })
 key('n', '<leader>tl', ':Telescope<CR>', { noremap = true, silent = true })
 key('n', '<C-c>', ':bd<CR>', { noremap = true, silent = true })
