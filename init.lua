@@ -52,17 +52,15 @@ vim.cmd [[
 
 vim.cmd 'source ~/.config/nvim/keys.vim'
 
-require('telescope').load_extension 'fzf'
-require('telescope').load_extension 'termfinder'
-require('telescope').load_extension 'heading'
-require('telescope').load_extension 'file_browser'
-require("telescope").load_extension('harpoon')
+
 
 require('nvim-autopairs').setup {}
 require('nvim-web-devicons').setup {}
 require'marks'.setup {}
 
 local actions = require "telescope.actions"
+local fb_actions = require "telescope".extensions.file_browser.actions
+
 require("telescope").setup {
   pickers = {
     buffers = {
@@ -83,9 +81,28 @@ require("telescope").setup {
           ["<esc>"] = false,
       },
     },
-  }
+  },
+  extensions = {
+    file_browser = {
+      theme = "ivy",
+      hijack_netrw = true,
+      mappings = {
+        i = {
+              ["<C-o>"] = fb_actions.create_from_prompt, 
+        },
+        n = {
+          ["<C-h>"] = fb_actions.goto_home_dir,
+        },
+      },
+    },
+  },
 }
 
+require('telescope').load_extension 'fzf'
+require('telescope').load_extension 'termfinder'
+require('telescope').load_extension 'heading'
+require('telescope').load_extension 'file_browser'
+require("telescope").load_extension('harpoon')
 
 --require('nvim-tree').setup {
 --  disable_netrw = false,
