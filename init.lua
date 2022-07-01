@@ -47,6 +47,7 @@ vim.cmd [[
     setlocal winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow
    endfunction
 
+   set winbar=%f
 
 ]]
 
@@ -88,7 +89,7 @@ require("telescope").setup {
       hijack_netrw = true,
       mappings = {
         i = {
-              ["<C-o>"] = fb_actions.create_from_prompt, 
+            ["<C-o>"] = fb_actions.create_from_prompt, 
         },
         n = {
           ["<C-h>"] = fb_actions.goto_home_dir,

@@ -51,4 +51,4 @@ key('n', 't<C-f>', ':Ultest<CR>', { noremap = true, silent = true })
 key('n', 't<C-o>', ':UltestOutput<CR>', { noremap = true, silent = true })
 key('v', '<leader>s', ':Telescope grep_string<CR>', { noremap = true, silent = true })
 key('v', '<leader>w', ":lua require('telescope.builtin').grep_string({disable_coordinates=true, word_match = '-w'})<CR>", { noremap = true, silent = true })
-vim.cmd [[nnoremap <silent> <Leader>e <Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>]]
+vim.cmd [[nnoremap <silent> <Leader>e <Cmd>lua vim.diagnostic.open_float()<CR>]]
