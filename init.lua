@@ -47,7 +47,8 @@ vim.cmd [[
     setlocal winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow
    endfunction
 
-   set winbar=%f
+   "set winbar=%f
+   set showtabline=0
 
 ]]
 
@@ -65,6 +66,7 @@ local fb_actions = require "telescope".extensions.file_browser.actions
 require("telescope").setup {
   pickers = {
     buffers = {
+      sort_lastused = true,
       mappings = {
         i = {
           ["<c-d>"] = actions.delete_buffer + actions.move_to_top,

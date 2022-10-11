@@ -106,7 +106,8 @@ return require('packer').startup(function(use)
   -- }
 
   use {
-    'nvim-telescope/telescope.nvim',
+    'quantumsnowball/telescope.nvim',
+    branch = 'builtin-tabpages',
     requires = { { 'nvim-lua/plenary.nvim' } },
   }
   use { 'nvim-telescope/telescope-file-browser.nvim' }
@@ -171,6 +172,8 @@ return require('packer').startup(function(use)
 
   use "smjonas/inc-rename.nvim"
 
+	use {'yuki-yano/fuzzy-motion.vim', requires = 'vim-denops/denops.vim'}
+
   use {
     "rcarriga/neotest",
     requires = {
@@ -179,6 +182,9 @@ return require('packer').startup(function(use)
       "antoinemadec/FixCursorHold.nvim"
     }
   }
+
+  -- use 'ggvgc/vim-fuzzysearch'
+
 
   if packer_bootstrap then
     require('packer').sync()

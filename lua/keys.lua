@@ -1,6 +1,16 @@
 local key = vim.api.nvim_set_keymap
 local basicOpts = { noremap = true, silent = true }
 
+local listTabBuffers = function()
+    local tpn = vim.fn.tabpagenr()
+    vim.cmd("let @v = " .. tpn)
+    require('telescope.builtin').tabpages()
+    --local key = vim.api.nvim_replace_termcodes("<C-r>", true, false, true)
+    --vim.api.nvim_feedkeys(key, 'n', false)
+    --vim.api.nvim_feedkeys("v", 'n', false)
+end
+
+
 vim.g.mapleader = ','
 vim.cmd [[
 
@@ -29,6 +39,9 @@ key('n', '<leader>o', ':Telescope lsp_document_symbols<CR>', { noremap = true, s
 
 key('n', '<c-p>', ':Telescope find_files<CR>', { noremap = true, silent = true })
 
+
+key('n', '<leader>ss', ':FuzzyMotion<CR> ', { noremap = true, silent = true })
+
 key('n', '<leader>r', ':Telescope git_branches<CR>', { noremap = true, silent = true })
 key('n', '<leader>f', ':Telescope git_files<CR>', { noremap = true, silent = true })
 
@@ -41,6 +54,15 @@ key('n', '<leader>tr', ':Telescope resume<CR>', { noremap = true, silent = true 
 key('n', '<space>', '/', { noremap = true, silent = true })
 
 key('n', '<leader>l', ":lua require('telescope.builtin').current_buffer_fuzzy_find({sorting_strategy = 'ascending'})<CR>", { noremap = true, silent = true })
+
+-- key('n', '<leader>B', ":lua vim.cmd('let @v=" .. vim.fn.tabpagenr() .. "');require('telescope.builtin').tabpages() <CR>i <c-R>v<ESC>" , { noremap = true, silent = true })
+
+-- key('n', '<leader>B', ":lua require('telescope.builtin').tabpages() <CR><ESC>:" ..   , { noremap = true, silent = true })
+ -- key('n', '<leader>B',  listTabBuffers, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>B", listTabBuffers)
+
+
+
 key('n', '<C-l>', ':Lines<CR>', { noremap = true, silent = true })
 
 key('i', ',,', '<c-o>a', { noremap = true, silent = true })
