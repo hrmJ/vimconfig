@@ -183,7 +183,20 @@ return require('packer').startup(function(use)
     }
   }
 
+  use 'koenverburg/peepsight.nvim'
+
   -- use 'ggvgc/vim-fuzzysearch'
+
+  use {
+    "folke/zen-mode.nvim",
+    config = function()
+      require("zen-mode").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  }
 
 
   if packer_bootstrap then

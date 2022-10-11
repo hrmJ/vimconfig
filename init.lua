@@ -168,5 +168,11 @@ require('yode-nvim').setup({})
 
 require('inc_rename').setup({})
 
+require('peepsight').setup({
+  -- typescript
+  "arrow_function",
+  "function_declaration",
+  "generator_function_declaration"
+})
 
 vim.keymap.set({ "v" }, "<Leader>re", require("react-extract").extract_to_new_file)
