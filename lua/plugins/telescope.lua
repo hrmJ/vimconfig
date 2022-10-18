@@ -5,10 +5,12 @@ key('n', '<leader>f', ':Telescope git_files<CR>', { noremap = true, silent = tru
 key('n', '<leader>G', ':Telescope grep_string search="" <CR>', { noremap = true, silent = true })
 key('n', '<leader>b', ':Telescope buffers<CR>', { noremap = true, silent = true })
 key('n', '<leader>tr', ':Telescope resume<CR>', { noremap = true, silent = true })
+key('n', '-', ':Telescope file_browser 	sorting_strategy=ascending path=%:p:h grouped=true <CR><Esc>', { noremap = true, silent = true })
 
 return function(use) 
 
 
+  use { 'nvim-telescope/telescope-file-browser.nvim' }
 	use {
 	  'nvim-telescope/telescope.nvim', 
 	  tag = '0.1.0',
@@ -17,6 +19,8 @@ return function(use)
 	  config = function()
 
 		local actions = require "telescope.actions"
+    local fb_actions = require "telescope".extensions.file_browser.actions
+
 		require("telescope").setup {
 		  pickers = {
 		    buffers = {
@@ -40,8 +44,25 @@ return function(use)
 		    },
 		  },
 		  extensions = {
+        file_browser = {
+          layout_config = {
+              vertical = { width = 0.8 }
+            -- other layout configuration here
+          },
+          hijack_netrw = true,
+          mappings = {
+            i = {
+                ["<C-o>"] = fb_actions.create_from_prompt, 
+            },
+            n = {
+              ["<C-j>"] = fb_actions.goto_home_dir,
+            },
+          },
+        },
 		  },
 		}
+
+    require('telescope').load_extension 'file_browser'
 
 	  end
 	}
