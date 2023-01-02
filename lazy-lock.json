@@ -1,0 +1,14 @@
+{
+  "SchemaStore.nvim": { "branch": "main", "commit": "99cdee23ff1343da67c37b4dffb0821a8fdf82a6" },
+  "lazy.nvim": { "branch": "main", "commit": "277a2ab10baeebf64548a6b5a606d7b82f8e3165" },
+  "lsp-format.nvim": { "branch": "master", "commit": "ca0df5c8544e51517209ea7b86ecc522c98d4f0a" },
+  "mason-tool-installer.nvim": { "branch": "main", "commit": "27f61f75a71bb3c2504a17e02b571f79cae43676" },
+  "mason.nvim": { "branch": "main", "commit": "b8c3fceed16d29a166cf73ce55358f13c9f6cfcc" },
+  "null-ls.nvim": { "branch": "main", "commit": "d09d7d82cc26d63673cef85cb62895dd68aab6d8" },
+  "nvim": { "branch": "main", "commit": "3020af75aae098a77737d91ee37c7147c8450d99" },
+  "nvim-lspconfig": { "branch": "master", "commit": "6b43ce561d97412cc512b569db6938e44529293e" },
+  "plenary.nvim": { "branch": "master", "commit": "4b7e52044bbb84242158d977a50c4cbcd85070c7" },
+  "telescope-file-browser.nvim": { "branch": "master", "commit": "304508fb7bea78e3c0eeddd88c4837501e403ae8" },
+  "telescope-fzf-native.nvim": { "branch": "main", "commit": "fab3e2212e206f4f8b3bbaa656e129443c9b802e" },
+  "telescope.nvim": { "branch": "master", "commit": "a606bd10c79ec5989c76c49cc6f736e88b63f0da" }
+}
