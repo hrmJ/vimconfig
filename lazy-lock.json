@@ -1,5 +1,6 @@
 {
   "SchemaStore.nvim": { "branch": "main", "commit": "99cdee23ff1343da67c37b4dffb0821a8fdf82a6" },
+  "gitsigns.nvim": { "branch": "main", "commit": "d4f8c01280413919349f5df7daccd0c172143d7c" },
   "lazy.nvim": { "branch": "main", "commit": "277a2ab10baeebf64548a6b5a606d7b82f8e3165" },
   "lsp-format.nvim": { "branch": "master", "commit": "ca0df5c8544e51517209ea7b86ecc522c98d4f0a" },
   "mason-tool-installer.nvim": { "branch": "main", "commit": "27f61f75a71bb3c2504a17e02b571f79cae43676" },
