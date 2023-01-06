@@ -40,6 +40,13 @@ return {
   'b0o/SchemaStore.nvim',
 
   {
+    'j-hui/fidget.nvim',
+    config = function()
+      require('fidget').setup {}
+    end,
+  },
+
+  {
     'neovim/nvim-lspconfig',
     ---@type lspconfig.options
     servers = {
