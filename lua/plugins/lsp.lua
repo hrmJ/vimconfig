@@ -2,7 +2,19 @@ local utils = require 'utils'
 local key = vim.api.nvim_set_keymap
 
 vim.cmd [[nnoremap <silent> <Leader>e <Cmd>lua vim.diagnostic.open_float()<CR>]]
-key('n', '<leader>ca', ':LspCodeAction<CR>', { noremap = true, silent = true })
+vim.cmd [[nnoremap <silent> <Leader>gd <Cmd>TypescriptGoToSourceDefinition<CR>]]
+
+vim.diagnostic.config {
+  virtual_text = false,
+  signs = false,
+  underline = true,
+  float = {
+    border = 'single',
+    format = function(diagnostic)
+      return string.format('%s (%s) [%s]', diagnostic.message, diagnostic.source, diagnostic.code or diagnostic.user_data.lsp.code)
+    end,
+  },
+}
 
 local on_attach = function(client, bufnr)
   local function buf_set_option(...)
@@ -17,9 +29,8 @@ local on_attach = function(client, bufnr)
   vim.cmd 'command! LspRefs lua vim.lsp.buf.references()'
   vim.cmd 'command! LspTypeDef lua vim.lsp.buf.type_definition()'
   vim.cmd 'command! LspImplementation lua vim.lsp.buf.implementation()'
-  vim.cmd 'command! LspDiagPrev lua vim.lsp.diagnostic.goto_prev()'
-  vim.cmd 'command! LspDiagNext lua vim.lsp.diagnostic.goto_next()'
-  vim.cmd 'command! LspDiagLine lua vim.lsp.diagnostic.show_line_diagnostics()'
+  vim.cmd 'command! LspDiagPrev lua vim.diagnostic.goto_prev()'
+  vim.cmd 'command! LspDiagNext lua vim.diagnostic.goto_next()'
   vim.cmd 'command! LspSignatureHelp lua vim.lsp.buf.signature_help()'
 
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -31,7 +42,6 @@ local on_attach = function(client, bufnr)
   utils.buf_map(bufnr, 'n', '[a', ':LspDiagPrev<CR>')
   utils.buf_map(bufnr, 'n', ']a', ':LspDiagNext<CR>')
   utils.buf_map(bufnr, 'n', 'ga', ':LspCodeAction<CR>')
-  utils.buf_map(bufnr, 'n', '<Leader>a', ':LspDiagLine<CR>')
   utils.buf_map(bufnr, 'i', '<C-x><C-x>', '<cmd> LspSignatureHelp<CR>')
 end
 
@@ -106,7 +116,11 @@ return {
           fallback = true, -- fall back to standard LSP definition on failure
         },
         server = { -- pass options to lspconfig's setup method
-          on_attach = on_attach,
+          on_attach = function(client, bufnr)
+            client.server_capabilities.document_formatting = false
+            client.server_capabilities.document_range_formatting = false
+            on_attach(client, bufnr)
+          end,
         },
       }
     end,
