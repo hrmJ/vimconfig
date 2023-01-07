@@ -3,7 +3,7 @@ key('n', '<c-p>', ':Telescope find_files<CR>', { noremap = true, silent = true }
 key('n', '<leader>l', ":lua require('telescope.builtin').current_buffer_fuzzy_find({sorting_strategy = 'ascending'})<CR>", { noremap = true, silent = true })
 key('n', '<leader>f', ':Telescope git_files<CR>', { noremap = true, silent = true })
 key('n', '<leader>g', ':Telescope grep_string<CR>', { noremap = true, silent = true })
-key('n', '<leader>G', ':Telescope grep_string search="" <CR>', { noremap = true, silent = true })
+key('n', '<leader>G', ':Telescope grep_string search="" disable_coordinates=true<CR>', { noremap = true, silent = true })
 key('n', '<leader>b', ':Telescope buffers<CR>', { noremap = true, silent = true })
 key('n', '<leader>tr', ':Telescope resume<CR>', { noremap = true, silent = true })
 key('n', '<leader>tl', ':Telescope<CR>', { noremap = true, silent = true })

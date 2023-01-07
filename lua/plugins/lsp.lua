@@ -3,6 +3,7 @@ local key = vim.api.nvim_set_keymap
 
 vim.cmd [[nnoremap <silent> <Leader>e <Cmd>lua vim.diagnostic.open_float()<CR>]]
 vim.cmd [[nnoremap <silent> <Leader>gd <Cmd>TypescriptGoToSourceDefinition<CR>]]
+key('n', '<leader>rr', ':Telescope lsp_references fname_width=90<CR>', { noremap = true, silent = true })
 
 vim.diagnostic.config {
   virtual_text = false,
