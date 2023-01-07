@@ -6,6 +6,7 @@ key('n', '<leader>g', ':Telescope grep_string<CR>', { noremap = true, silent = t
 key('n', '<leader>G', ':Telescope grep_string search="" <CR>', { noremap = true, silent = true })
 key('n', '<leader>b', ':Telescope buffers<CR>', { noremap = true, silent = true })
 key('n', '<leader>tr', ':Telescope resume<CR>', { noremap = true, silent = true })
+key('n', '<leader>tl', ':Telescope<CR>', { noremap = true, silent = true })
 key('n', '-', ':Telescope file_browser 	sorting_strategy=ascending path=%:p:h grouped=true <CR><Esc>', { noremap = true, silent = true })
 
 key('n', '<leader>G', ':Telescope grep_string search="" <CR>', { noremap = true, silent = true })
