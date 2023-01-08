@@ -9,13 +9,13 @@ return {
     config = function()
       vim.g.catppuccin_flavour = 'mocha' -- latte, frappe, macchiato, mocha
       require('catppuccin').setup()
-      -- vim.api.nvim_command 'colorscheme catppuccin'
+      vim.api.nvim_command 'colorscheme catppuccin'
 
-      --vim.cmd('hi! link DiagnosticHint String')
-      --vim.cmd('hi DiagnosticUnderlineError gui=undercurl guisp='..require"colors".get_color('DiagnosticError', 'fg'))
-      --vim.cmd('hi DiagnosticUnderlineWarn  gui=undercurl guisp='..require"colors".get_color('DiagnosticWarn', 'fg'))
-      --vim.cmd('hi DiagnosticUnderlineInfo  gui=undercurl guisp='..require"colors".get_color('DiagnosticInfo', 'fg'))
-      --vim.cmd('hi DiagnosticUnderlineHint  gui=undercurl guisp='..require"colors".get_color('DiagnosticHint', 'fg'))
+      vim.cmd 'hi! link DiagnosticHint String'
+      vim.cmd 'hi DiagnosticUnderlineError gui=undercurl'
+      vim.cmd 'hi DiagnosticUnderlineWarn  gui=undercurl'
+      vim.cmd 'hi DiagnosticUnderlineInfo  gui=undercurl'
+      vim.cmd 'hi DiagnosticUnderlineHint  gui=undercurl'
     end,
   },
 
@@ -40,8 +40,8 @@ return {
         colors = {},
         overrides = {},
         theme = 'default', -- Load "default" theme or the experimental "light" theme
-        vim.api.nvim_command 'colorscheme kanagawa',
       }
+      -- vim.api.nvim_command 'colorscheme kanagawa',
     end,
   },
 
