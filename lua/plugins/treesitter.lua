@@ -2,6 +2,8 @@ return {
 
   { 'nvim-treesitter/nvim-treesitter-textobjects' },
 
+  { 'windwp/nvim-ts-autotag' },
+
   {
     'nvim-treesitter/nvim-treesitter',
     config = function()

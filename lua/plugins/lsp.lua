@@ -4,6 +4,7 @@ local key = vim.api.nvim_set_keymap
 vim.cmd [[nnoremap <silent> <Leader>e <Cmd>lua vim.diagnostic.open_float()<CR>]]
 vim.cmd [[nnoremap <silent> <Leader>gd <Cmd>TypescriptGoToSourceDefinition<CR>]]
 key('n', '<leader>rr', ':Telescope lsp_references fname_width=90<CR>', { noremap = true, silent = true })
+key('n', '<leader>ca', ':LspCodeAction<CR>', { noremap = true, silent = true })
 
 vim.diagnostic.config {
   virtual_text = false,
@@ -51,6 +52,15 @@ return {
   'b0o/SchemaStore.nvim',
 
   {
+    'ray-x/lsp_signature.nvim',
+    config = function()
+      require('lsp_signature').setup {
+        hint_prefix = '',
+      }
+    end,
+  },
+
+  {
     'j-hui/fidget.nvim',
     config = function()
       require('fidget').setup {}
@@ -92,6 +102,7 @@ return {
           nls.builtins.formatting.stylua,
           nls.builtins.formatting.eslint_d,
           nls.builtins.diagnostics.eslint_d,
+          nls.builtins.code_actions.eslint_d,
         },
         on_attach = function(client, bufnr)
           require('lsp-format').on_attach(client, bufnr)

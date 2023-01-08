@@ -8,7 +8,6 @@ return {
     'hrsh7th/cmp-vsnip',
     'hrsh7th/vim-vsnip',
     'hrsh7th/cmp-nvim-lsp-document-symbol',
-    'hrsh7th/cmp-nvim-lsp-signature-help',
   },
   {
     'hrsh7th/nvim-cmp',
@@ -35,7 +34,6 @@ return {
         sources = {
           { name = 'nvim_lsp' },
           { name = 'vsnip' },
-          { name = 'nvim_lsp_signature_help' },
         },
 
         experimental = {

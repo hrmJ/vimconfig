@@ -1,6 +1,7 @@
 local key = vim.api.nvim_set_keymap
 
 key('n', 's', ':Pounce<CR>', { noremap = true, silent = true })
+key('i', ',,', '<c-o>a', { noremap = true, silent = true })
 
 return {
 
@@ -24,6 +25,13 @@ return {
       require('nvim-surround').setup {
         -- Configuration here, or leave empty to use defaults
       }
+    end,
+  },
+
+  {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
     end,
   },
 }
