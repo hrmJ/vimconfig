@@ -34,4 +34,12 @@ return {
       require('Comment').setup()
     end,
   },
+
+  {
+
+    'chentoast/marks.nvim',
+    config = function()
+      require('marks').setup()
+    end,
+  },
 }
