@@ -3,17 +3,44 @@ key('n', '<c-p>', ':Telescope find_files<CR>', { noremap = true, silent = true }
 key('n', '<leader>l', ":lua require('telescope.builtin').current_buffer_fuzzy_find({sorting_strategy = 'ascending'})<CR>", { noremap = true, silent = true })
 key('n', '<leader>f', ':Telescope git_files<CR>', { noremap = true, silent = true })
 key('n', '<leader>g', ':Telescope grep_string<CR>', { noremap = true, silent = true })
-key('n', '<leader>G', ':Telescope grep_string search="" disable_coordinates=true only_show_text=true <CR>', { noremap = true, silent = true })
+key('n', '<leader>tg', ':Telescope live_grep<CR>', { noremap = true, silent = true })
+key('n', '<leader>ts', ':Telescope git_status<CR>', { noremap = true, silent = true })
+key('n', '<leader>G', ':Telescope grep_string search="" <CR>', { noremap = true, silent = true })
 key('n', '<leader>b', ':Telescope buffers<CR>', { noremap = true, silent = true })
 key('n', '<leader>tr', ':Telescope resume<CR>', { noremap = true, silent = true })
 key('n', '<leader>tl', ':Telescope<CR>', { noremap = true, silent = true })
 key('n', '-', ':Telescope file_browser 	sorting_strategy=ascending path=%:p:h grouped=true <CR><Esc>', { noremap = true, silent = true })
+key('n', '<leader>q', ':Telescope quickfix <CR><Esc>', { noremap = true, silent = true })
+key('n', '<leader>q', ':Telescope quickfix <CR><Esc>', { noremap = true, silent = true })
+key('n', '<c-s>', ':Telescope luasnip<CR>', { noremap = true, silent = true })
+key('i', '<c-s>', '<Esc>:Telescope luasnip<CR>', { noremap = true, silent = true })
 
-key('n', '<leader>G', ':Telescope grep_string search="" <CR>', { noremap = true, silent = true })
+function fuzzyFindFiles()
+  require('telescope.builtin').grep_string {
+    path_display = { 'smart' },
+    only_sort_text = true,
+    word_match = '-w',
+    search = '',
+  }
+end
+
+vim.keymap.set('n', '<C-g>', '<cmd>lua fuzzyFindFiles{}<cr>', {})
 
 return {
 
   { 'nvim-lua/plenary.nvim' },
+  { 'junegunn/fzf' },
+  { 'junegunn/fzf.vim' },
+
+  { 'nvim-telescope/telescope-symbols.nvim' },
+  {
+    'benfowler/telescope-luasnip.nvim',
+    lazy = false,
+    config = function()
+      -- code
+      require('telescope').load_extension 'luasnip'
+    end,
+  },
   {
     'nvim-telescope/telescope.nvim',
     dependencies = {
@@ -24,6 +51,7 @@ return {
       local telescope = require 'telescope'
       local actions = telescope.actions
       local fb_actions = telescope.extensions.file_browser.actions
+
       telescope.setup {
         pickers = {
           buffers = {
@@ -75,6 +103,9 @@ return {
 
       telescope.load_extension 'file_browser'
       telescope.load_extension 'fzf'
+      telescope.load_extension 'luasnip'
+
+      require('luasnip.loaders.from_vscode').load()
     end,
   },
 }

@@ -3,6 +3,13 @@ local key = vim.api.nvim_set_keymap
 key('n', 's', ':Pounce<CR>', { noremap = true, silent = true })
 key('i', ',,', '<c-o>a', { noremap = true, silent = true })
 
+vim.filetype.add {
+  pattern = {
+    ['Tiltfile'] = 'python',
+    ['Jenkinsfile'] = 'groovy',
+  },
+}
+
 return {
 
   {
@@ -42,4 +49,6 @@ return {
       require('marks').setup()
     end,
   },
+
+  { 'Olical/vim-enmasse' },
 }

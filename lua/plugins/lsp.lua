@@ -86,9 +86,25 @@ return {
           },
         },
       },
-      yamlls = {},
+      yamlls = {
+        schemas = {
+          ['https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json'] = '/*.openapi.yaml',
+          ['https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json'] = '/*.k8s.yaml',
+          ['https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/kustomization.json'] = '/*.kustomization.yaml',
+          ..., -- other schemas
+        },
+      },
+      marksman = {},
+      robotframework_ls = {},
     },
+    config = function()
+      require('lspconfig').marksman.setup {}
+      require('lspconfig').robotframework_ls.setup {}
+      require('lspconfig').yamlls.setup {}
+      require('lspconfig').jsonls.setup {}
+    end,
   },
+  { 'mfukar/robotframework-vim' },
 
   {
     'jose-elias-alvarez/null-ls.nvim',
@@ -98,7 +114,8 @@ return {
         debounce = 150,
         save_after_format = false,
         sources = {
-          nls.builtins.formatting.prettierd,
+          nls.builtins.formatting.prettier,
+          -- nls.builtins.formatting.prettierd,
           nls.builtins.formatting.stylua,
           nls.builtins.formatting.eslint_d,
           nls.builtins.diagnostics.eslint_d,

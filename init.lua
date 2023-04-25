@@ -1,35 +1,29 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
+  vim.fn.system {
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', -- latest stable release
     lazypath,
-  })
+  }
 end
 vim.opt.rtp:prepend(lazypath)
 
 require 'general-settings'
-require("lazy").setup("plugins")
-    
-      
-    
+require('lazy').setup 'plugins'
 
-      
-    
-
-    
-  
+require('luasnip').filetype_extend('typescript', { 'javascript' })
+require('luasnip.loaders.from_vscode').load()
 
 -- require 'plugins'
 -- require 'autocommands'
 
--- 
+--
 -- local lspUtils = require 'lsp-utils'
 -- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
--- 
+--
 -- require('null-ls').setup {
 --   sources = {
 --     require('null-ls').builtins.diagnostics.eslint_d,
@@ -39,8 +33,8 @@ require("lazy").setup("plugins")
 --   },
 --   on_attach = lspUtils.on_attach,
 -- }
--- 
--- 
+--
+--
 -- require("null-ls").setup({
 --     -- you can reuse a shared lspconfig on_attach callback here
 --     on_attach = function(client, bufnr)
@@ -57,6 +51,6 @@ require("lazy").setup("plugins")
 --         end
 --     end,
 -- })
--- 
--- 
--- 
+--
+--
+--
