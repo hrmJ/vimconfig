@@ -3,7 +3,8 @@ key('n', '<c-p>', ':Telescope find_files<CR>', { noremap = true, silent = true }
 key('n', '<leader>l', ":lua require('telescope.builtin').current_buffer_fuzzy_find({sorting_strategy = 'ascending'})<CR>", { noremap = true, silent = true })
 key('n', '<leader>f', ':Telescope git_files<CR>', { noremap = true, silent = true })
 key('n', '<leader>g', ':Telescope grep_string<CR>', { noremap = true, silent = true })
-key('n', '<leader>tg', ':Telescope live_grep<CR>', { noremap = true, silent = true })
+key('n', '<leader>tg', ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", {noremap = true, silent = true})
+
 key('n', '<leader>ts', ':Telescope git_status<CR>', { noremap = true, silent = true })
 key('n', '<leader>G', ':Telescope grep_string search="" <CR>', { noremap = true, silent = true })
 key('n', '<leader>b', ':Telescope buffers<CR>', { noremap = true, silent = true })
@@ -46,11 +47,13 @@ return {
     dependencies = {
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
       { 'nvim-telescope/telescope-file-browser.nvim' },
+      { 'nvim-telescope/telescope-live-grep-args.nvim' },
     },
     config = function()
       local telescope = require 'telescope'
       local actions = telescope.actions
       local fb_actions = telescope.extensions.file_browser.actions
+      local lga_actions = require("telescope-live-grep-args.actions")
 
       telescope.setup {
         pickers = {
@@ -98,6 +101,19 @@ return {
               },
             },
           },
+
+
+          live_grep_args = {
+            auto_quoting = true,
+            mappings = { -- extend mappings
+              i = {
+                ['<C-k>'] = lga_actions.quote_prompt(),
+                ['<C-i>'] = lga_actions.quote_prompt { postfix = ' --iglob ' },
+              },
+            },
+          },
+
+
         },
       }
 
