@@ -1,3 +1,7 @@
+vim.keymap.set('n', '<A-i>', '<CMD>lua require("FTerm").toggle()<CR>')
+vim.keymap.set('t', '<A-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
+vim.keymap.set('n', '!!', '<CMD>lua require("FTerm").run("!!")<CR><CR>')
+
 return {
 
   {
@@ -8,18 +12,7 @@ return {
   },
 
   {
-    'nyngwang/NeoTerm.lua',
-    config = function()
-      require('neo-term').setup {
-        exclude_filetypes = { 'oil' },
-        exclude_buftypes = { 'terminal' },
-      }
-      vim.keymap.set('n', '<leader>t', function()
-        vim.cmd 'NeoTermToggle'
-      end)
-      vim.keymap.set('t', '<M-o>', function()
-        vim.cmd 'NeoTermEnterNormal'
-      end)
-    end,
+    'numToStr/FTerm.nvim',
+    config = function() end,
   },
 }
