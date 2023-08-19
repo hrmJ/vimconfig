@@ -22,6 +22,12 @@ local on_attach = function(client, bufnr)
   local function buf_set_option(...)
     vim.api.nvim_buf_set_option(bufnr, ...)
   end
+  if require('lspconfig').util.root_pattern('deno.json', 'deno.jsonc')(vim.fn.getcwd()) then
+    if client.name == 'tsserver' then
+      client.stop()
+      return
+    end
+  end
 
   vim.cmd 'command! LspDef lua vim.lsp.buf.definition()'
   vim.cmd 'command! LspFormatting lua vim.lsp.buf.format()'
@@ -109,17 +115,7 @@ return {
         single_file_support = false,
       }
       require('lspconfig').denols.setup {
-
-        on_attach = function()
-          local active_clients = vim.lsp.get_active_clients()
-          for _, client in pairs(active_clients) do
-            -- stop tsserver if denols is already active
-            if client.name == 'tsserver' then
-              client.stop()
-            end
-          end
-        end,
-
+        on_attach = on_attach,
         root_dir = util.root_pattern('deno.json', 'deno.jsonc'),
 
         init_options = {
@@ -189,13 +185,6 @@ return {
             root_dir = util.root_pattern 'package.json'
             single_file_support = false
             on_attach(client, bufnr)
-            local active_clients = vim.lsp.get_active_clients()
-            for _, client in pairs(active_clients) do
-              -- stop tsserver if denols is already active
-              if client.name == 'denols' then
-                client.stop()
-              end
-            end
           end,
         },
       }
