@@ -98,10 +98,47 @@ return {
       robotframework_ls = {},
     },
     config = function()
+      local util = require('lspconfig').util
       require('lspconfig').marksman.setup {}
       require('lspconfig').robotframework_ls.setup {}
       require('lspconfig').yamlls.setup {}
       require('lspconfig').jsonls.setup {}
+      require('lspconfig').tsserver.setup {
+        on_attach = on_attach,
+        root_dir = util.root_pattern 'package.json',
+        single_file_support = false,
+      }
+      require('lspconfig').denols.setup {
+
+        on_attach = function()
+          local active_clients = vim.lsp.get_active_clients()
+          for _, client in pairs(active_clients) do
+            -- stop tsserver if denols is already active
+            if client.name == 'tsserver' then
+              client.stop()
+            end
+          end
+        end,
+
+        root_dir = util.root_pattern('deno.json', 'deno.jsonc'),
+
+        init_options = {
+          lint = true,
+          unstable = true,
+          suggest = {
+            imports = {
+              hosts = {
+                ['https://deno.land'] = true,
+                ['https://cdn.nest.land'] = true,
+                ['https://crux.land'] = true,
+              },
+            },
+          },
+        },
+      }
+      vim.g.markdown_fenced_languages = {
+        'ts=typescript',
+      }
     end,
   },
   { 'mfukar/robotframework-vim' },
@@ -146,9 +183,19 @@ return {
         },
         server = { -- pass options to lspconfig's setup method
           on_attach = function(client, bufnr)
+            local util = require('lspconfig').util
             client.server_capabilities.document_formatting = false
             client.server_capabilities.document_range_formatting = false
+            root_dir = util.root_pattern 'package.json'
+            single_file_support = false
             on_attach(client, bufnr)
+            local active_clients = vim.lsp.get_active_clients()
+            for _, client in pairs(active_clients) do
+              -- stop tsserver if denols is already active
+              if client.name == 'denols' then
+                client.stop()
+              end
+            end
           end,
         },
       }
