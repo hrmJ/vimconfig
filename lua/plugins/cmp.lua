@@ -4,6 +4,8 @@ keymap('i', '<c-j>', "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
 keymap('s', '<c-j>', "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
 keymap('i', '<c-k>', "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
 keymap('s', '<c-k>', "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
+keymap('i', '<c-q>', "<cmd>lua require('cmp').complete({ config = { sources = { { name = 'luasnip' } } } })<CR>", opts)
+keymap('i', '<c-e>', "<cmd>lua require('cmp').complete({ config = { sources = { { name = 'luasnip' } } } })<CR>", opts)
 
 return {
   {

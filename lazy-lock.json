@@ -49,6 +49,8 @@
   "typescript.nvim": { "branch": "main", "commit": "f66d4472606cb24615dfb7dbc6557e779d177624" },
   "vim-enmasse": { "branch": "master", "commit": "c2286f1d7bd735287a661cd223cd94e2a1f74deb" },
   "vim-fugitive": { "branch": "master", "commit": "62f42f013d866139fa23068ac2651b3f7e05a56f" },
+  "vim-prisma": { "branch": "main", "commit": "95c5b25066efb34c75bce78698baa371fe0ee7c2" },
   "vim-vsnip": { "branch": "master", "commit": "8dde8c0ef10bb1afdbb301e2bd7eb1c153dd558e" },
-  "vim-vsnip-integ": { "branch": "master", "commit": "1cf89903f12777b90dd79eb4b3d7fbc0b9a254a1" }
+  "vim-vsnip-integ": { "branch": "master", "commit": "1cf89903f12777b90dd79eb4b3d7fbc0b9a254a1" },
+  "zen-mode.nvim": { "branch": "main", "commit": "68f554702de63f4b7b6b6d4bcb10178f41a0acc7" }
 }

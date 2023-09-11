@@ -56,6 +56,7 @@ end
 return {
 
   'b0o/SchemaStore.nvim',
+  'prisma/vim-prisma',
 
   {
     'ray-x/lsp_signature.nvim',
@@ -105,10 +106,27 @@ return {
     },
     config = function()
       local util = require('lspconfig').util
-      require('lspconfig').marksman.setup {}
-      require('lspconfig').robotframework_ls.setup {}
-      require('lspconfig').yamlls.setup {}
-      require('lspconfig').jsonls.setup {}
+      require('lspconfig').prismals.setup {
+        on_attach = on_attach,
+      }
+      require('lspconfig').marksman.setup {
+
+        on_attach = on_attach,
+      }
+      require('lspconfig').robotframework_ls.setup {
+        on_attach = on_attach,
+      }
+      require('lspconfig').yamlls.setup {
+
+        on_attach = on_attach,
+      }
+      require('lspconfig').jsonls.setup {
+
+        on_attach = on_attach,
+      }
+      require('lspconfig').cssls.setup {
+        on_attach = on_attach,
+      }
       require('lspconfig').tsserver.setup {
         on_attach = on_attach,
         root_dir = util.root_pattern 'package.json',
