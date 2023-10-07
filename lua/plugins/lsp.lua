@@ -28,6 +28,12 @@ local on_attach = function(client, bufnr)
       return
     end
   end
+  if vim.bo[bufnr].buftype ~= '' or vim.bo[bufnr].filetype == 'helm' then
+    vim.diagnostic.disable(bufnr)
+    vim.defer_fn(function()
+      vim.diagnostic.reset(nil, bufnr)
+    end, 1000)
+  end
 
   vim.cmd 'command! LspDef lua vim.lsp.buf.definition()'
   vim.cmd 'command! LspFormatting lua vim.lsp.buf.format()'
@@ -69,13 +75,12 @@ return {
 
   {
     'j-hui/fidget.nvim',
-    config = function()
-      require('fidget').setup {}
-    end,
+    tag = 'legacy',
   },
 
   {
     'neovim/nvim-lspconfig',
+
     ---@type lspconfig.options
     servers = {
       tsserver = {},
@@ -127,6 +132,9 @@ return {
       require('lspconfig').cssls.setup {
         on_attach = on_attach,
       }
+
+      require('lspconfig').helm_ls.setup {}
+
       require('lspconfig').tsserver.setup {
         on_attach = on_attach,
         root_dir = util.root_pattern 'package.json',
@@ -185,6 +193,8 @@ return {
       require('lsp-format').setup {}
     end,
   },
+
+  { 'towolf/vim-helm', lazy = false },
 
   {
     'jose-elias-alvarez/typescript.nvim',

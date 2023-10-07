@@ -17,6 +17,7 @@ vim.cmd [[
   set softtabstop=2
   set tabstop=2
   set nohlsearch
+  set ignorecase
 
   au TermOpen * tnoremap <A-o> <c-\><c-n>
 

@@ -51,4 +51,13 @@ return {
   },
 
   { 'Olical/vim-enmasse' },
+
+  { 'tpope/vim-eunuch' },
+
+  {
+    'echasnovski/mini.align',
+    config = function()
+      require('mini.align').setup()
+    end,
+  },
 }
