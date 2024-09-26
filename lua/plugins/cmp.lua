@@ -20,14 +20,9 @@ return {
     {
       'L3MON4D3/LuaSnip',
       -- follow latest release.
-      version = '<CurrentMajor>.*',
+      version = 'v2.*', -- Replace <CurrentMajor> by the latest released major (first number of latest release)
       -- install jsregexp (optional!).
       build = 'make install_jsregexp',
-      lazy = false,
-      config = function()
-        require('luasnip').filetype_extend('typescriptreact', { 'javascript', 'typescript' })
-        require('luasnip').filetype_extend('typescript', { 'javascript' })
-      end,
     },
     'rafamadriz/friendly-snippets',
     'saadparwaiz1/cmp_luasnip',

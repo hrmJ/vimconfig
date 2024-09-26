@@ -6,6 +6,7 @@ return {
 
   {
     'nvim-treesitter/nvim-treesitter',
+    tag = 'v0.9.2',
     config = function()
       require('nvim-treesitter.configs').setup {
         tree_docs = {

@@ -133,6 +133,10 @@ return {
         on_attach = on_attach,
       }
 
+      require('lspconfig').rust_analyzer.setup {
+        on_attach = on_attach,
+      }
+
       require('lspconfig').helm_ls.setup {}
 
       require('lspconfig').tsserver.setup {
@@ -173,7 +177,9 @@ return {
         debounce = 150,
         save_after_format = false,
         sources = {
-          nls.builtins.formatting.prettier,
+          nls.builtins.formatting.prettier.with {
+            filetypes = { 'javascript', 'typescript', 'html', 'css', 'rust', 'typescriptreact', 'json' },
+          },
           -- nls.builtins.formatting.prettierd,
           nls.builtins.formatting.stylua,
           nls.builtins.formatting.eslint_d,
@@ -195,6 +201,21 @@ return {
   },
 
   { 'towolf/vim-helm', lazy = false },
+
+  {
+    'simrat39/symbols-outline.nvim',
+    lazy = false,
+
+    config = function()
+      require('symbols-outline').setup {
+        position = 'left',
+        autofold_depth = 1,
+        keymaps = {
+          close = { 'q' },
+        },
+      }
+    end,
+  },
 
   {
     'jose-elias-alvarez/typescript.nvim',
